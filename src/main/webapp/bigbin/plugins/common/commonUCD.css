@@ -1,0 +1,432 @@
+@CHARSET "UTF-8";
+
+*{
+	outline:medium;
+}
+
+body, h1, h2, h3, h4, h5, h6, hr, p, blockquote, dl, dt, dd, ul, ol, li, pre, form, fieldset, legend, button, input, textarea, th, td {
+    margin: 0;
+    padding: 0;
+}
+
+html,body{
+	color:#444;
+	width:100%;
+	height:100%;
+	text-align:center;
+}
+
+body, button, input, select, textarea{
+	border:1px solid #d1d1d1;/*ued色号:15*/
+	outline: none;
+	font: 14px "Microsoft Yahei",arial;
+}
+
+input[type='button']{
+	border: medium none;
+    border-radius: 3px;
+	color:#fff;
+	background-color: #36a9e1;
+}
+input[type='button']:HOVER{
+	background-color: #2b85b2;
+	font-weight: bold;
+}
+
+table{
+	width: 100%;
+	border-collapse: collapse; 
+	word-break: break-all;
+	word-warp: break-word;
+	border:1px solid #d5d5d5;
+}
+th,td{
+	border:1px solid #d5d5d5;
+	word-break:break-all;
+	word-wrap:break-word;
+}
+
+form table, form table th, form table td{
+	border:none;
+	padding:5px;
+}
+
+form select{
+	width: 220px;
+}
+
+form label{
+	display: inline-block;
+    height: 30px;
+    line-height: 30px;
+    margin-right: 10px;
+    text-align: right;
+    width: 90px;
+	float: left;
+}
+
+form label+span{
+	display: inline-block;
+    height: 30px;
+    line-height: 30px;
+    margin-right: 10px;
+    text-align: left;
+    width: 90px;
+	float: left;
+}
+
+.title{
+	height:44px;
+	letter-spacing:2px;
+	line-height:44px;
+	border:1px solid #d5d5d5;
+}
+
+.sub_title{
+	height:36px;
+	line-height:36px;
+	border:1px solid #d5d5d5;
+}
+
+/*表单标题*/
+.form_title{
+	height: 36px;
+	line-height: 36px;
+	text-align:left;
+	border-bottom: 2px solid #36A9E1;
+	margin: 10px 0px 5px 0px;
+}
+/*表单里面的input的样式*/
+.form_input{
+    border-radius: 5px;
+    color: #787878;
+    display: inline-block;
+    height: 28px;
+    line-height: 28px;
+    padding-bottom: 1px;
+    padding-left: 8px;
+    padding-top: 1px;
+    width: 210px;
+    border: 1px solid #d1d1d1;
+    background-color: #f9f9f9;
+    box-shadow: 0 0 3px white inset, 0 1px 1px rgba(0, 0, 0, 0.1);
+    float: left;
+}
+.form_input:focus{
+	background-color:#fff;
+	border: 1px solid #36a9e1;
+}
+.form_input[disabled]{
+	background-color: #EFEFEF;
+	color: #787878 !important;
+}
+
+.hidden{
+	display:none !important;
+}
+
+.errorMsg{
+	color:red;
+}
+
+.btn{
+	display: inline-block;
+	height: 30px;
+	letter-spacing: 2px;
+	border-radius: 3px;
+	line-height: 30px;
+	background-color: #36A9E1;
+	color: #FFF;
+	cursor: pointer;
+	margin: 0 5px;
+    padding: 0 15px;
+}
+
+.btn:hover{
+	background-color: #2B9FD7;
+	font-weight: bold;
+}
+
+input.error{
+/* 	background-color: #ffe7e7 !important; */
+	border: 1px solid red;
+}
+
+span.open{
+	background:url('images/open-off.png') -138px -40px no-repeat;
+	display:inline-block;
+	width:52px;
+	height:26px;
+	cursor: pointer;
+}
+span.close{
+	background:url('images/open-off.png') -138px -68px no-repeat;
+	display:inline-block;
+	width:52px;
+	height:26px;
+	cursor: pointer;
+}
+
+
+span.checkbox{
+	display: inline-block;
+	width:24px;
+	height:24px;
+	background:url('images/icon/checkbox_unchecked_24px.png') no-repeat;
+	overflow: hidden;
+}
+
+span.checkbox.checked{
+	display: inline-block;
+	width:24px;
+	height:24px;
+	background:url('images/icon/checkbox_checked_24px.png') no-repeat;
+	overflow: hidden;
+}
+
+span.checkbox+span{
+	display: inline-block;
+	height: 24px;
+	line-height: 24px;
+	margin-left: 5px;
+	overflow: hidden;
+}
+
+span.icon{
+	display: inline-block;
+	width: 48px;
+	height:48px;
+	overflow: hidden;
+}
+span.icon+span{
+	display: inline-block;
+	height: 48px;
+	line-height: 48px;
+	margin-left: 5px;
+	overflow: hidden;
+}
+
+span.warning_icon{
+	width:32px;
+	height:32px;
+	background:url('images/icon/warning_32px.png') no-repeat;
+}
+span.warning_icon+span{
+	height: 32px;
+	line-height: 32px;
+}
+
+span.loading_icon, span.loading_icon1{
+	background:url('images/icon/loading1.gif') no-repeat;
+}
+
+span.loading_icon2{
+	background:url('images/icon/loading2.gif') no-repeat;
+	background-position: -46px -12px;
+}
+
+span.success{
+	background:url('images/icon/emoticon_smile.png') no-repeat;
+}
+
+span.error{
+	background:url('images/icon/emoticon_sad.png') no-repeat;
+}
+
+/*jquery validate的提示框的样式*/
+.tooltip {
+	position: absolute;
+	z-index: 1020;
+	display: block;
+	visibility: visible;
+	padding: 5px;
+	font-size: 11px;
+	opacity: 0;
+	filter: alpha(opacity = 0);
+}
+
+.tooltip-inner {
+	max-width: 200px;
+	padding: 3px 8px;
+	color: #ffffff;
+	text-align: center;
+	text-decoration: none;
+	background-color: #000000;
+	-webkit-border-radius: 4px;
+	-moz-border-radius: 4px;
+	border-radius: 4px;
+}
+
+/*初始化时候显示*/
+.loadingDiv{
+	height:100%;
+	width:100%;
+	background:#fff;
+	position:fixed;
+	z-index:99999;
+}
+
+
+/* 详情小图标 */
+.detail-span{
+	display:inline-block;
+	height: 45px;
+	line-height:45px;
+	width:10px;
+	margin:0px 5px;
+	cursor: pointer;
+	background: url('images/icon/common-detail.png') no-repeat 0 0;
+	background-position:center;
+	overflow: hidden;  
+    
+}
+
+/* 选中详情 */
+.select-detail{
+	background: url('images/icon/select-detail.png') no-repeat 0 0;
+	background-position:center;
+}
+
+/* 删除小图标 */
+.detel-span{
+	display:inline-block;
+	height: 45px;
+	line-height:45px;
+	margin:0px 5px;
+	width:10px;
+	cursor: pointer;
+	background: url('images/icon/common-del.png') no-repeat 0 0;
+	background-position:center;
+	overflow: hidden;  
+  
+}
+
+/* 选中删除 */
+.select-delete{
+	background: url('images/icon/select-delete.png') no-repeat 0 0;
+	background-position:center;
+}
+
+
+.icon-success{
+	display: inline-block;
+	width: 40px;
+	height:40px;
+	background:url('images/icon/emoticon_smile.png') no-repeat 0 0;
+	overflow: hidden;	
+}
+
+.icon-error{
+	display: inline-block;
+	width: 40px;
+	height:40px;
+	background:url('images/icon/emoticon_sad.png') no-repeat 0 0;
+	overflow: hidden;
+}
+
+/*必填字段加*提示*/
+.vText {
+	float:left;
+	line-height: 32px;
+	height: 30px;
+	margin-left:2px;
+	color: red;
+	font-size: 18px;
+}
+
+/* IE下的滚动条修饰 */
+* {
+	scrollbar-face-color: #F3F3F3; /*面子*/
+	scrollbar-arrow-color: #C0C0C0; /*箭头*/
+	scrollbar-3dlight-color: #C0C0C0; /*最外左*/
+	scrollbar-highlight-color: #FFFFFF; /*左二*/
+	scrollbar-shadow-color: #FFFFFF; /*右二*/
+	scrollbar-darkshadow-color: #C0C0C0; /*右一*/
+	scrollbar-track-color: #F3F3F3; /*滑道*/
+}
+
+/*!****************************dialog对话框窗口样式***********************************/
+
+/* jquery ui widget重载 */
+.ui-widget-content {
+    border: 1px solid #d1d1d1;
+}
+
+/* jquery ui dialog重载 */
+.ui-dialog {
+    padding: 0;
+}
+
+/* jquery ui dialog重载 */
+.ui-dialog .ui-dialog-content {
+    padding: 0;
+}
+
+/* jquery ui dialog重载 */
+.ui-corner-all, .ui-corner-bottom, .ui-corner-right, .ui-corner-br {
+    border-bottom-right-radius: 2px;
+}
+
+/* jquery ui dialog重载 */
+.ui-corner-all, .ui-corner-bottom, .ui-corner-left, .ui-corner-bl {
+    border-bottom-left-radius: 2px;
+}
+
+/* jquery ui dialog重载 */
+.ui-corner-all, .ui-corner-top, .ui-corner-right, .ui-corner-tr {
+    border-top-right-radius: 2px;
+}
+
+/* jquery ui dialog重载 */
+.ui-corner-all, .ui-corner-top, .ui-corner-left, .ui-corner-tl {
+    border-top-left-radius: 2px;
+}
+
+/* jquery ui dialog重载 */
+.ui-dialog .ui-dialog-title {
+    margin: 0px;
+    letter-spacing: 0px;
+}
+
+/* jquery ui dialog重载 */
+.ui-widget-header {
+    background: #3e7fb6;
+    border:0;
+    color: #ffffff;
+    font-weight: normal;
+	height: 24px;
+	line-height: 22px;
+}
+
+/* jquery ui dialog重载 */
+.ui-state-default, .ui-widget-content .ui-state-default, .ui-widget-header .ui-state-default {
+	background: transparent none repeat scroll 0 0;
+    border: 0;
+}
+
+/* jquery ui dialog重载 */
+.ui-state-default .ui-icon {
+    background-image: url('./images/window-close.png');
+}
+
+/* jquery ui dialog重载 */
+.ui-dialog .ui-dialog-titlebar-close {
+    height: 18px;
+    /* margin: -12px 8px 0 0; */
+    padding: 0;
+    right: 5px;
+    top: 50%;
+}
+
+/* jquery ui dialog重载 */
+.ui-button-icon-only .ui-icon {
+	display:inline-block;
+	height:18px;
+	line-height: 12px;
+	width:12px;
+	margin-right:30px;
+	cursor:pointer;
+	background: url('./images/window-close.png') no-repeat 0 0;
+	background-position:center right; 
+}
+/************************************************************************************/

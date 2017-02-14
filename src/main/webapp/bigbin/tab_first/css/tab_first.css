@@ -1,0 +1,226 @@
+body {
+	margin: 0;
+	padding: 0;
+	font: 16px Helvetica, Arial, sans-serif;
+	background: #252529;
+	color: white;
+}
+
+/* Dirty Reset */
+ul, ul li {
+	display: block;
+	padding: 0;
+	margin: 0;
+	list-style-type: none;
+}
+
+a, a:link, a:active, a:visited, a:active {
+	border: none;
+	outline: none;
+	color: white;
+	text-decoration: none;
+}
+
+p {
+	font-size: 14px;
+	line-height: 20px;
+}
+
+#container {
+	display: block;
+	width: 900px;
+	margin: 40px auto 0;
+	padding: 0 0 100px 0;
+}
+
+.subtle {
+	display: block;
+	float: right;
+	color: #878793;
+	font-size: 11px;
+	padding: 20px 0;
+}
+
+h3, h2, h1 {
+	color: white;
+}
+
+h3 {
+	padding: 10px 0 0 0;
+}
+
+hr {
+	display: block;
+	float: left;
+}
+
+/* Indicators */
+ul#billy_indicators {
+	width: auto;
+	margin: 20px 0 0 0;
+	float: right;
+	display: block;
+	z-index: 90;
+}
+
+ul#billy_indicators li {
+	display: block;
+	width: 9px;
+	height: 9px;
+	float: left;
+	margin: 0 5px 0 0;
+}
+
+ul#billy_indicators li a {
+	display: block;
+	width: 9px;
+	height: 9px;
+	background: #fff;
+	opacity: 0.4;
+	-moz-border-radius: 50px;
+	-webkit-border-radius: 50px;
+}
+
+ul#billy_indicators li.active a {
+	opacity: 1.0;
+}
+
+ul#billy_indicators li a:hover {
+	opacity: 0.6;
+}
+
+ul#billy_indicators li.active a:hover {
+	opacity: 1.0;
+}
+
+/* Controls */
+#clicker {
+	display: block;
+	float: left;
+	margin: 20px 0 0 0;
+}
+
+#clicker a {
+	background: transparent;
+	border: 1px solid white;
+	font-size: 12px;
+	color: white;
+	padding: 5px 10px 4px;
+	margin: 0;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+}
+
+#clicker a:hover {
+	color: #252529;
+	background: white;
+}
+
+/* Carousel */
+#billy_clip {
+	width: 900px;
+	position: relative; /* For IE */
+	overflow: hidden;
+	height: 400px;
+	z-index: 100;
+}
+
+ul#billy_scroller {
+	width: 9999px;
+	height: 400px;
+	display: block;
+	float: left;
+	position: relative;
+}
+
+ul#billy_scroller li {
+	width: 900px;
+	height: 400px;
+	float: left;
+	display: block;
+}
+
+/* Tabber */
+ul#tabber {
+	width: 9999px;
+	height: 400px;
+	display: block;
+	float: left;
+	position: relative;
+	margin: 0;
+	padding: 0;
+}
+
+ul#tabber li {
+	width: 900px;
+	height: 400px;
+	float: left;
+	display: block;
+}
+
+/* Tabs */
+#tabber_clip {
+	width: 900px;
+	position: relative; /* For IE */
+	overflow: hidden;
+	height: 400px;
+	z-index: 101;
+	border-top: 1px solid white;
+	border-right: 2px solid white;
+	border-bottom: 2px solid white;
+	border-left: 1px solid white;
+	float: left;
+}
+
+ul#tabber_tabs {
+	display: block;
+	float: left;
+	width: 900px;
+	padding: 0;
+	margin: 10px 0 0 0;
+	float: left;
+}
+
+ul#tabber_tabs li {
+	display: block;
+	float: left;
+	margin: 0 10px 0 0;
+}
+
+ul#tabber_tabs li a {
+	padding: 5px 6px 6px;
+	display: block;
+	font-size: 13px;
+	border-top: 1px solid white;
+	border-right: 2px solid white;
+	border-bottom: none;
+	border-left: 1px solid white;
+	-moz-border-radius-topleft: 4px;
+	-webkit-border-top-left-radius: 4px;
+	-moz-border-radius-topright: 4px;
+	-webkit-border-top-right-radius: 4px;
+}
+
+ul#tabber_tabs li.active a {
+	background: white;
+	color: #252529;
+}
+
+.codetab {
+	padding: 10px;
+	width: 880px;
+	height: 380px;
+	background: #646391;
+	font-size: 0.9em;
+	overflow: auto;
+	display: block;
+	float: left;
+}
+#billy_scroller li img{
+	width: 900;
+	height: 400;
+}
+#tabber li img{
+	width: 900;
+	height: 400;
+}

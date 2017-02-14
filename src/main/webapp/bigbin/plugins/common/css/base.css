@@ -1,0 +1,130 @@
+@CHARSET "UTF-8";
+
+*{
+	outline:medium;
+}
+
+body, h1, h2, h3, h4, h5, h6, hr, p, blockquote, dl, dt, dd, ul, ol, li, pre, form, fieldset, legend, button, input, textarea, th, td {
+    margin: 0;
+    padding: 0;
+}
+
+html,body{
+	color:#444;
+	width:100%;
+	height:100%;
+	text-align:center;
+}
+
+body, button, input, select, textarea{
+	font: 14px "Microsoft Yahei",arial;
+}
+
+#noneSelectPageTable tbody tr:hover{
+	background:#CDEFFF ;
+}
+#selectPageTable tbody tr:hover{
+	background:#CDEFFF ;
+}
+
+li {
+	list-style: none;
+}
+/* 滚动条样式修改  */
+* {
+	scrollbar-face-color: #F3F3F3; /*面子*/
+	scrollbar-arrow-color: #C0C0C0; /*箭头*/
+	scrollbar-3dlight-color: #C0C0C0; /*最外左*/
+	scrollbar-highlight-color: #FFFFFF; /*左二*/
+	scrollbar-shadow-color: #FFFFFF; /*右二*/
+	scrollbar-darkshadow-color: #C0C0C0; /*右一*/
+	scrollbar-track-color: #F3F3F3; /*滑道*/
+}
+/*滚动条整体*/
+::-webkit-scrollbar {
+	width: 14px; /*滚动条宽度*/
+}
+/*滚动条按钮*/
+::-webkit-scrollbar-button {
+	
+}
+
+::-webkit-scrollbar-track {
+	background-color: #F3F3F3; /*滑道全部*/
+}
+
+::-webkit-scrollbar-track-piece {
+	background-color: #F3F3F3; /*滑道*/
+	-webkit-border-radius: 4px; /*滑道圆角宽度*/
+}
+
+::-webkit-scrollbar-thumb {
+	background-color: #F3F3F3; /*滑动条表面*/
+	border: solid 1px #D1D1D1; /*滑动条边框*/
+	border-radius: 4px; /*滑动条圆角宽度*/
+}
+/*横竖滚动条交角*/
+::-webkit-scrollbar-corner {
+	background-color: #F3F3F3;
+}
+/*横竖滚动条交角图案*/
+::-webkit-resizer {
+	/*background-image: url(/public/img/resizer-inactive.png);*/
+	background-repeat: no-repeat;
+	background-position: bottom right;
+}
+/*鼠标滑过滑动条*/
+::-webkit-scrollbar-thumb:hover {
+	background-color: #F3F3E0;
+}
+
+input.error {
+	border: 1px solid red;
+}
+
+label.error, label.tip {
+	padding-left: 16px;
+	padding-bottom: 2px;
+	font-weight: bold;
+	color: #EA5200;
+	float: right;
+	display: inline-block;
+	margin-right: 10px;
+}
+
+input.highlight {
+	border: 1px solid #7abd54;
+}
+
+label.tip {
+	color: #aaa;
+}
+
+.checkradio {
+	width: 15px;
+	height: 15px;
+	border: 0px;
+}
+
+.tooltip {
+	position: absolute;
+	z-index: 1020;
+	display: block;
+	visibility: visible;
+	padding: 5px;
+	font-size: 11px;
+	opacity: 0;
+	filter: alpha(opacity = 0);
+}
+
+.tooltip-inner {
+	max-width: 200px;
+	padding: 3px 8px;
+	color: #ffffff;
+	text-align: center;
+	text-decoration: none;
+	background-color: #000000;
+	-webkit-border-radius: 4px;
+	-moz-border-radius: 4px;
+	border-radius: 4px;
+}

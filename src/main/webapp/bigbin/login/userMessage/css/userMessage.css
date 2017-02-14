@@ -1,0 +1,53 @@
+@CHARSET "UTF-8";
+*{
+    margin: 0;
+    padding: 0;
+    outline:medium;
+}
+
+html,body{
+	font: 12px "Microsoft Yahei",arial;
+	background:#A8F6EF;
+	color:#444; 
+	width:100%;
+	height:100%;
+	text-align:center;
+	overflow: hidden;
+}
+.modify_uploadImg{	
+	position: absolute;
+	left:0;
+	color:white;
+	filter: alpha(opacity=45);	
+	border-radius: 5px;		
+	top:100%;
+	margin-top: -35px;
+	width: 100%;
+}
+.modify_uploadImg span{
+	background-color:#444444;
+	border-radius: 5px;	
+	cursor: pointer;
+	height:30px;
+	line-height: 30px;
+	width:60px;
+	display:inline-block;
+}
+.uploadImg{
+	padding-left:10px;
+	background: url('../images/icon_upload.png') no-repeat 0 0;
+	background-position:5px center;
+}
+.modify_uploadImg span:hover{
+	font-size:13px;
+}
+.file{
+	position:absolute;
+	filter:alpha(opacity=0);
+	opacity:0; 
+	width:60px;
+	height:30px;
+	left:75px;
+	top:0;
+	cursor: pointer; 
+}

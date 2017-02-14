@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>注册页面</title>
+<meta http-equiv="Cache-Control" content="no-cache" />
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=8">
+<link rel="stylesheet" type="text/css" href="bigbin/plugins/showLoading/showLoading.css">
+<link rel="stylesheet" type="text/css" href="bigbin/plugins/jquery/jquery-ui-1.11.3/jquery-ui.css">
+<link rel="stylesheet" type="text/css" href="bigbin/plugins/jquery/jquery-1.7/jquery.alert.css" >
+<link rel="stylesheet" type="text/css" href="bigbin/plugins/common/commonUCD.css">
+<link rel="stylesheet" type="text/css" href="bigbin/login//register/css/register.css">
+
+<script type="text/javascript" src="bigbin/plugins/jquery/jquery-1.11.3/jquery.min.js"></script>
+<script type="text/javascript" src="bigbin/plugins/jquery/jquery-ui-1.11.3/jquery-ui.js"></script>
+<script type="text/javascript" src="bigbin/plugins/showLoading/jquery.showLoading.min.js"></script>
+<script type="text/javascript" src="bigbin/plugins/jquery/jquery-1.7/jquery.validate.js"></script>
+<script type="text/javascript" src="bigbin/plugins/jquery/jquery-1.7/validate.method.js"></script>
+<script type="text/javascript" src="bigbin/plugins/jquery/jquery-1.7/jquery.alert.js"></script>
+<script type="text/javascript" src="bigbin/plugins/common/js/base64.js"></script>
+<script type="text/javascript" src="bigbin/plugins/common/js/cookie.js"></script>
+<script type="text/javascript" src="bigbin/login/register/js/register.js"></script>
+</head>
+<body>
+<div class="left_half">
+	<div class="left_code">
+		<div class="left_code_image">
+			<div class="code_image"></div>
+			<div class="code_text">纯属娱乐</div>
+		</div>
+	</div>
+</div>
+<div class="right_half">
+	<div class="right_half_form">
+		<form class="register_form" name="register_form">
+			<div class="form_title">注册</div>
+			<table class="register_form_table">
+				<tr>
+					<td>
+						<label>用 户 名：</label>
+						<input class="form_input" type="text" id="username" name="username" value="" />
+						<span class="vText" name="vText">*</span>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<label>设置密码：</label>
+						<input class="form_input" type="password" id="password" name="password" value="" />
+						<span class="vText" name="vText">*</span>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<label>确认密码：</label>
+						<input class="form_input" type="password" id="spassword" name="spassword" value="" />
+						<span class="vText" name="vText">*</span>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<label>手&nbsp;&nbsp;机：</label>
+						<input class="form_input" type="text" id="phone" name="phone" value="" />
+						<span class="" name="vText"></span>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<label>邮&nbsp;&nbsp;箱：</label>
+						<input class="form_input" type="email" id="email" name="email" value="" />
+						<span class="vText" name="vText">*</span>
+					</td>
+				</tr>
+			</table>
+			<div class="form_bottom">
+				<input id="submitBtn" type="button" class='botton' value="立即注册"/>
+			</div>
+		</form>
+	</div>
+</div>
+	<div id="successTip">
+		<span class="icon success"></span>
+		<span id='tipSuccess'></span>
+	</div> 
+</body>
+</html>

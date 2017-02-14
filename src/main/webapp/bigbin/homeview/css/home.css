@@ -1,0 +1,231 @@
+body {
+      background-color: #193c6d;
+      filter: progid: DXImageTransform.Microsoft.gradient(gradientType=1, startColorstr='#003073', endColorstr='#029797');
+      background-size: 100%;
+      background-image: -webkit-gradient(linear, 0 0, 100% 100%, color-stop(0, #003073), color-stop(100%, #029797));
+      background-image: -webkit-linear-gradient(135deg, #003073, #029797);
+      background-image: -moz-linear-gradient(45deg, #003073, #029797);
+      background-image: -ms-linear-gradient(45deg, #003073 0, #029797 100%);
+      background-image: -o-linear-gradient(45deg, #003073, #029797);
+      background-image: linear-gradient(135deg, #003073, #029797);
+      margin: 0px;
+      overflow: hidden;
+      border: 1px solid #01718A;
+}
+
+body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, code, form, textarea, select, optgroup, option, fieldset, legend, p, blockquote, th, td {
+    margin: 0;
+    padding: 0;
+}
+ul, li, ol {
+    list-style: outside none none;
+}
+
+
+/* 页面顶部的样式 */
+.header-div{
+	height:40px;
+	line-height:40px;
+    border-bottom: 1px solid #01718A;
+}
+.user-message{
+	color: #fff;
+    height: 40px;
+    left: 0;
+    margin-top: -1px;
+    min-width: 120px;
+    position:relative;
+    width: 100%;
+    z-index: 999;
+}
+.user-message a {
+    color: #3584f4;
+    line-height: 35px;
+    margin: 0;
+    padding-left: 12px;
+}
+.header-info{
+	color: #fff;
+    float: right;
+    height: 100%;
+}
+.user-info{
+	display: inline-block;
+    margin-right: 30px;
+    position: relative;
+    z-index: 1;
+}
+.logo-span{
+	background: rgba(0, 0, 0, 0.1) none repeat scroll center center;
+    border-radius: 50%;
+    display: inline-block;
+    height: 34px;
+    vertical-align: middle;
+    width: 34px;
+}
+.user-photo {
+    background-position:none repeat scroll center center;
+    background-size: cover;
+    border-radius: 50%;
+    display: inline-block;
+    height: 34px;
+    width: 34px;
+}
+.user-name{
+	margin-left: 10px;
+}
+
+#arrow{
+	margin-left: 5px;
+	display: inline-block;
+    height: 12px;
+    vertical-align: middle;
+    width: 12px;
+}
+.arrow-up-grey{
+	width: 12px;
+	height: 12px;
+	cursor: pointer;
+	background:url('../../homeview/css/images/arrow-up-grey.png') no-repeat center; 
+}
+.arrow-down-grey{
+    width: 12px;
+	height: 12px;
+	cursor: pointer;
+	background:url('../../homeview/css/images/arrow-down-grey.png') no-repeat center; 
+}
+.arrow-up-white{
+	width: 12px;
+	height: 12px;
+	cursor: pointer;
+	background:url('../../homeview/css/images/arrow-up-white.png') no-repeat center; 
+}
+.arrow-down-white{
+    width: 12px;
+	height: 12px;
+	cursor: pointer;
+	background:url('../../homeview/css/images/arrow-down-white.png') no-repeat center; 
+}
+/* 小分割  */
+.app-seperate{
+	border-left: 1px solid #c0c0c0;
+    display: inline-block;
+    height: 12px;
+    margin-bottom: -1px;
+    width: 0;
+    margin-left: 5px;
+}
+
+/* 悬浮框  */
+.user-desc{
+	background: #fff none repeat scroll 0 0;
+    border-radius: 5px;
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
+    display: none;
+    height: auto;
+    position: absolute;
+    top: 48px;
+    width: 105px;
+    z-index: 1;
+}
+.user-desc-info{
+	background: #fff none repeat scroll 0 0;
+    border-radius: 5px 5px 0 0;
+    position: relative;
+    z-index: 1;
+}
+.mouseon .user-desc{ 	
+    display: block;
+}
+
+/* 小三角  */
+.user-desc .user-desc-info .desc-arrow {
+    border-bottom: 10px solid #2d2d2d;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+}
+.desc-arrow {
+    background-position: center center;
+    background-size: cover;
+    height: 0;
+    left: 25px;
+    position: absolute;
+    top: -10px;
+    width: 0;
+    z-index: 1;
+}
+
+.link-item {
+    color: #fff;
+    font-size: 14px;
+    height: 25px;
+    line-height: 25px;
+}
+.desc-link li{
+	background: #2d2d2d none repeat scroll 0 0;
+	width: 100%;
+	line-height: 25px;
+	border-bottom: 1px solid #ababab;
+}
+.desc-link li:hover{
+	background: #111 none repeat scroll 0 0;
+    text-decoration: none;
+}
+.desc-link a {
+	text-decoration:none;
+	color: #ababab;
+    line-height: 25px;
+    margin: 0;
+    padding-left: 15px;
+}
+.desc-link a:hover{
+	 color: #fff;
+	 cursor: pointer;
+	 font-size:15px;
+	 font: bold;
+}
+/* 第一个和最后一个子元素的样式 */
+.desc-link .link-item:first-child {
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}
+.desc-link .link-item:last-child {
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    border-bottom: none;
+}
+
+
+/* 主体部分  就相当于是嵌进页面里去的效果*/
+.main{
+	position:absolute;
+	z-index:-2;
+	background-size:cover;
+}
+
+/* ifame的父dom */
+.iframe-div{
+	float:left;
+	background: url("../../homeview/css/images/flowww.png") no-repeat;
+}
+/* iframe的样式*/
+.iframe-style{
+	height: 100%;
+	width: 100%;
+	marginwidth: 0;
+	marginheight: 0;
+	scrolling: auto;
+	border-radius: 4px;
+	border:0;
+	frameborder:0;
+	framespacing:0;
+	scrolling:yes;
+}
+
+/* 上右侧区域  */
+.top-right{
+	float:left;
+	background: #01718A none repeat scroll 0 0;
+}
+
+/* 主下  */

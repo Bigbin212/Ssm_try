@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>网页提醒</title>
+<script type="text/javascript" src="../../../bigbin/plugins/iNotify/iNotify.js"></script>
+</head>
+<body>
+<a href="javascript:inotifyTest()">请点击我测试一下！</a>
+<script type="text/javascript">
+var iN = new iNotify({
+    effect: 'scroll',
+    interval: 500,
+    message:"有消息拉！",
+    audio:{
+        file: ['zy/msg.mp4','zy/msg.mp3','zy/msg.wav']
+    },
+    notification:{
+        title:"通知！",
+        body:'您来了一条新消息'
+    }
+});
+
+function inotifyTest(){
+    iN.setFavicon(1);
+    iN.setTitle('新标题');
+    iN.notify({
+        title:"新通知",
+        body:"打雷啦，下雨啦...",
+        openurl:''
+    }).player();
+    iN.addTimer();
+}
+</script>
+
+</body>
+</html>

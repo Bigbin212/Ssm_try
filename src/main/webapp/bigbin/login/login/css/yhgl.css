@@ -1,0 +1,183 @@
+@CHARSET "UTF-8";
+
+body {
+	overflow: hidden;
+	color: #787878;
+	height:100%;
+}
+
+/**列表样式*/
+li {
+	list-style: none;
+}
+
+.main{
+	background:#fff;
+}
+.sub-title{
+	height:30px;
+	line-height:30px;
+	background-color: #F9F9F9;
+    background: -webkit-linear-gradient(top,#F8F8F8 0,#eeeeee 100%);
+  	background: -moz-linear-gradient(top,#F8F8F8 0,#eeeeee 100%);
+  	background: -o-linear-gradient(top,#F8F8F8 0,#eeeeee 100%);
+  	background: linear-gradient(to bottom,#F8F8F8 0,#eeeeee 100%);
+  	background-repeat: repeat-x;
+  	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#F8F8F8,endColorstr=#eeeeee,GradientType=0);
+}
+
+.sub-title .title-span{
+	height:30px;
+	line-height: 30px;
+	font-size: 16px;
+	color: #606669;
+	float:left;
+	padding-left:10px;
+	font-weight:bold;
+}
+
+.search-condition {
+    height: 40px;
+}
+.search-condition-ul {
+    margin:auto;
+    width: 930px;
+}
+.search-condition-li {
+    height: 30px;
+    margin-left: 10px;
+    margin-top: 5px;
+    width: 930px;
+}
+.commom-label {
+    background: #e8f3f7;
+    color: #000000;
+    height: 30px;
+    line-height: 30px;
+    width: 100%;
+    display: inline-block;
+    text-align: center;
+}
+
+.main-content {
+    overflow-y: auto;
+    width: 100%;
+}
+.vehicle_data_ul {
+    margin: auto;
+}
+.vehicle-data-li {
+    border: 1px solid #cadbee;
+    height: 110px;
+    margin: 10px 3px 8px 15px;
+    width: 280px;
+}
+.vehicle-data-li:hover {
+    background-color: #e9f2f7;
+    border-color: #f7b53d;
+}
+
+.vehicle-data-li .vehicle-data-info{
+	font-size: 16px;
+    height: 20px;
+    line-height: 20px;
+    margin-top: 5px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    text-align:center;
+    white-space: nowrap;
+}
+.list{
+	height:32px;
+	line-height:32px;
+	width:100%;
+	border-top: 1px solid #d1d1d1;	
+}
+
+.chosen-container-single .chosen-single{
+	border-color:#d1d1d1;
+}
+
+.choosen-margin-top{
+	margin-top:-4px;
+	margin-left:6px;
+}
+.page-size-select{
+	margin-right:20px;
+	color:#444444;
+}
+
+.pagination{
+	margin:0px;
+	margin-top:10px;
+}
+
+.device-name-span {
+	float:left;
+	height:45px;
+	line-height:45px;
+    display: inline-block;
+    overflow: hidden;
+    padding-left: 10px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    width: 160px;
+}
+.divSelected {
+    background: #1e8fc6 none repeat scroll 0 0;
+}
+
+/**信息长度超出后显示省略号*/
+.text-overflow-ellipsis{
+	text-overflow: ellipsis; /* for IE */  
+    -moz-text-overflow: ellipsis; /* for Firefox,mozilla */  
+    overflow: hidden;  
+    white-space: nowrap;
+}
+.commom-label {
+    background: #e9f2f7 none repeat scroll 0 0;
+    color: #000000;
+    height: 30px;
+    line-height: 30px;
+    width: 100px;
+}
+
+/* 详情小图标 */
+.detail-span{
+	display:inline-block;
+	height:32px;
+	line-height:32px;
+	width:10px;
+	margin:0px 5px;
+	cursor: pointer;
+	background: url('../../../plugins/common/images/icon/common-detail.png') no-repeat 0 0;
+	background-position:center;
+	overflow: hidden;  
+    
+}
+
+/* 选中详情 */
+.select-detail{
+	background: url('../../../plugins/common/images/icon/select-detail.png') no-repeat 0 0;
+	background-position:center;
+}
+
+/* 删除小图标 */
+.detel-span{
+	display:inline-block;
+	height:32px;
+	line-height:32px;
+	margin:0px 5px;
+	width:10px;
+	cursor: pointer;
+	background: url('../../../plugins/common/images/icon/common-del.png') no-repeat 0 0;
+	background-position:center;
+	overflow: hidden;  
+  
+}
+
+/* 选中删除 */
+.select-delete{
+	background: url('../../../plugins/common/images/icon/select-delete.png') no-repeat 0 0;
+	background-position:center;
+}

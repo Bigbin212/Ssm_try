@@ -1,0 +1,105 @@
+@CHARSET "UTF-8";
+
+*{
+    margin: 0;
+    padding: 0;
+    outline:medium;
+}
+
+html,body{
+	font: 12px "Microsoft Yahei",arial;
+	background:#A8F6EF;
+	color:#444; 
+	width:100%;
+	height:100%;
+	text-align:center;
+	overflow: hidden;
+}
+/*左半边布局开始*/
+.left_half{
+	overflow:hidden;
+	height:100%;
+	float: left;
+	text-align:center;
+	background: url("../../register/images/body_back.png") no-repeat;
+}
+.left_code{
+    border: 1px solid #E7E7E7;
+    border-image: none;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+}
+.left_code_image{
+  vertical-align: middle;
+  display: table-cell;
+  width: 180px;
+  height: 200px;
+  margin: auto;
+  position: absolute;
+  top: 30%;
+  left: 30%;
+  bottom: 0;
+  right: 0;
+  margin-left: -50px;
+  margin-top: -50px;
+}
+
+.code_image{
+	width: 100%;
+  	height: 180px;
+	background: url("../../register/images/code.png") no-repeat;
+	background-color:rgb(255,255,255) ;
+}
+.code_text{
+	width: 100%;
+  	height: 20px;
+	background-color:rgb(255,255,255) ;
+}
+/*左半边布局结束*/
+
+/*右半边布局*/
+.right_half{
+	float: left;
+	overflow-y:hidden;
+}
+.right_half_form{
+	margin-top:50px;
+	margin-right: 50px;
+}
+.form_bottom{
+	height: 36px;
+	line-height: 36px;
+	text-align:center;
+	border-top: 2px solid #36A9E1;
+	margin: 15px 0px 5px 0px;
+}
+/*按钮样式*/
+.botton{
+	background-color:#36a9e1;
+	color: #ffffff;
+	border:none;
+	filter:alpha(opacity=90);
+	border-top-left-radius:4px 2px;
+    border-top-right-radius:3px 4px;
+    border-bottom-right-radius:6px 2px;
+    border-bottom-left-radius:3px 4px;
+    width: 100px;
+    height: 30px;
+}
+.botton:hover,.botton:active {
+	color: #ffffff;
+    background: #1e8fc6;
+}
+/* 校验通过时显示钩  */
+.span_success{
+	float:left;
+	background:url("../../register/images/validator_default.png") -15px -0px no-repeat;
+	line-height: 16px;
+	margin-left:2px;
+	display:inline-block;
+	margin-top:10px;
+	width:32px;
+	height:16px;
+	cursor: pointer;
+}

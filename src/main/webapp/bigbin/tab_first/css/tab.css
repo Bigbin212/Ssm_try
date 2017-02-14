@@ -1,0 +1,67 @@
+@CHARSET "UTF-8";
+html {
+	color: #000;
+	background: #ECECEC;
+}
+
+html, body, div, dl, dt, dd, object, iframe, ul, ol, li, h1, h2, h3, h4,
+	h5, h6, input, button, textarea, p, blockquote, th, td {
+	margin: 0;
+	padding: 0;
+}
+
+body {
+    font: 14px/18px "Microsoft Yahei", Tahoma, Helvetica, Arial, Verdana,"\5b8b\4f53", sans-serif;
+	color: #51555C;
+	background:#f9f9f9; 
+	border:none;
+	overflow:hidden
+}
+/* tab的样式 */
+
+.tab {
+	overflow: hidden;
+	background: #f9f9f9 none repeat scroll 0 0;
+	clear: both;
+	border-top: 1px solid #d1d1d1;
+	border-left: 1px solid #d1d1d1;
+	border-right: 1px solid #d1d1d1;
+	padding-bottom: 0;
+}
+
+.tab a {
+	font-size: 16px;
+	display: block;
+	padding: 9px 20px;
+	float: left;
+	text-decoration: none;
+	color: #333;
+	border-right: 1px solid #d1d1d1;
+}
+
+.tab a:hover {
+	background: #6c6c6c;
+	color: #fff;
+	text-decoration: none;
+}
+
+.tab a.on {
+	background: #23a443;
+	color: #fff;
+	text-decoration: none;
+}
+
+.tab a:focus {
+	outline: none;
+}
+
+.content {
+	overflow: hidden;
+	padding: 0px;
+	border: 1px solid #d1d1d1;
+}
+
+.content-li {
+	display: none;
+	background: white;
+}

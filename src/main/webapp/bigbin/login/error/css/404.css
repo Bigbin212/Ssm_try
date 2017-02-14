@@ -1,0 +1,24 @@
+@CHARSET "UTF-8";
+
+html,body{
+	height:100%;
+	width:100%;
+	margin: 0px;
+	padding: 0px;
+	overflow: hidden;
+}
+
+body {
+	font: 14px/18px "Microsoft Yahei", Tahoma, Helvetica, Arial, Verdana,"\5b8b\4f53", sans-serif;
+	color: #51555C;
+	background:#f9f9f9; 
+	border:none;
+}
+
+.pic-404{
+	float:left;
+	width:650px;
+	height:770px;
+	padding:0 auto 0 auto;
+	background: url("../../error/css/images/404.jpg") no-repeat;
+}

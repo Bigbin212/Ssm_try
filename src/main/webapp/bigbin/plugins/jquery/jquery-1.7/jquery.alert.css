@@ -1,0 +1,104 @@
+#popup_container {
+	font-size: 16px;
+	min-width: 400px; /* Dialog will be no smaller than this */
+	max-width: 600px; /* Dialog will wrap after this width */
+	background: #FFF;
+	border: solid 1px #ccc;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	border-radius: 5px;
+}
+#popup_title {
+	min-width: 400px;
+	font-size: 16px;
+	text-align: left;
+	height: 36px;
+	line-height: 36px;
+	color: #fff;
+	background-color: #36a9e1;
+	cursor: default;
+	padding: 0em;
+	padding-left: 10px;
+	margin: 0em;
+}
+
+#popup_content {
+	background: 16px 16px no-repeat url(images/info.gif);
+	padding: 1em 1.75em 0.5em 1.75em;
+	margin: 0em;
+}
+
+#popup_content.alert {
+	background-image: url(images/emoticon_sad.png);
+	background-position: 58px 35%;
+}
+
+#popup_content.confirm {
+	background-image: url(images/important.png);
+	background-position: 58px 35%;
+}
+
+#popup_content.prompt {
+	background-image: url(images/emoticon_smile.png);
+	background-position: 58px 35%;
+}
+
+#popup_message {
+	padding-left: 98px;
+	padding-top: 28px;
+	padding-bottom: 25px;
+	color:#444444;
+}
+
+#popup_panel {
+	text-align: center;
+	margin: 1em 0em 0em 1em;
+}
+
+#popup_prompt {
+	margin: .5em 0em;
+}
+
+/**button**/
+.btn-big {
+	height:36px;
+	line-height:36px;
+	background-color:#36a9e1;
+	color: #ffffff;
+	font-size: 16px;
+	margin:0px;
+}
+
+.btn-mid {
+	height:35px;
+	line-height:35px;
+	background-color:#36a9e1;
+	color: #ffffff;
+	font-size: 20px;
+	margin:0px;
+	border:0px;
+}
+
+.btn-small{
+	height:28px;
+	line-height:28px;
+	background-color:#36a9e1;
+	color: #ffffff;
+	font-size: 16px;
+	width:80px;
+	margin:0px;
+}
+
+.btn-big, .btn-mid, .btn-small {
+    text-align: center;
+    display: inline-block;
+    cursor: pointer;
+    border-radius: 2px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+.btn-big :hover, .btn-mid:hover, .btn-small:hover, .btn-big :active, .btn-mid:active, .btn-small:active {
+    color: #ffffff;
+    background: #1e8fc6;
+}

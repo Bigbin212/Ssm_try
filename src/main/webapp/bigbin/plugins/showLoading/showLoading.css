@@ -1,0 +1,36 @@
+.loading-indicator {
+	height: 40px;
+	min-width: 40px;
+	background: url( 'loading-bg.gif' );
+	background-repeat: no-repeat;
+	background-position: left center;
+}
+
+.loading-indicator-total {
+	height: 40px;
+	min-width: 40px;
+	background: url( 'loading-total.gif' );
+	background-repeat: no-repeat;
+	background-position: left center;
+}
+
+.loading-indicator-overlay {
+	background-color: #FFFFFF;
+	opacity: 0.6;
+	filter: alpha(opacity = 60);
+}
+
+.loading-btn-cancle{
+	height:30px;
+	line-height:30px;
+	margin:5px 18px;
+	width:50px;
+	cursor:pointer;
+	text-align:center;
+	background: url( 'loading-btn-bg-normal.png' );
+	background-position: center center;
+}
+
+.loading-btn-cancle:hover{
+	background: url( 'loading-btn-bg-hover.png' );
+}

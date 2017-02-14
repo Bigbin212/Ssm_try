@@ -1,0 +1,83 @@
+@CHARSET "UTF-8";
+
+.pagination {
+	margin:10px 0px;
+	height:30px;
+	width:100%;
+}
+        
+.pagination a {
+    text-decoration: none;
+	border: solid 1px #AAE;
+	color: #15B;
+}
+
+.pagination a{
+    display: inline-block;
+	height:28px;
+	margin-left:5px;
+	line-height:28px;
+	min-width:40px;
+}
+
+.pagination span,.pagination input{
+	 display: inline-block;
+	height:28px;
+	margin-left:5px;
+	line-height:28px;
+}
+
+.pagination .current {
+    background: #26B;
+    color: #fff;
+	border: solid 1px #AAE;
+	min-width:40px;
+}
+
+.pagination .current.prev, .pagination .current.next,.pagination .current.first,.pagination .current.last{
+	color:#999;
+	border-color:#999;
+	background:#fff;
+	width:60px;
+}
+
+.prev, .next, .first, .last{
+	
+	width:60px;
+}
+
+#pageDiv{
+	text-align:center;
+	vertical-align: middle;
+}
+
+
+
+
+.pagination .page-split{
+	
+	width:1px;
+	background-color: #D1D1D1;	
+}
+
+.pagination  .common{
+	
+	color:#000;
+	border: solid 0px #AAE;
+	background: #fff;
+	
+}
+.pagination .total-pageNum{
+	background: #fff;
+	font-size:18px;
+	color:#59c2f8;
+	border: solid 0px #AAE;
+	font-family: "SimSun",宋体;
+}
+
+.pagination .currentPage{
+	
+	width:50px;
+	text-align:center;
+	
+}

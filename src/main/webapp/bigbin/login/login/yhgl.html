@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>用户管理</title>
+<meta http-equiv="Cache-Control" content="no-cache" />
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=8">
+<link rel="stylesheet" type="text/css" href="bigbin/plugins/common/commonUCD.css">
+<link rel="stylesheet" type="text/css" href="bigbin/plugins/showLoading/showLoading.css">
+<link rel="stylesheet" type="text/css" href="bigbin/plugins/chosen/chosen.min.css">
+<link rel="stylesheet" type="text/css" href="bigbin/plugins/jquery.sticky/sticky.full.css">
+<link rel="stylesheet" type="text/css" href="bigbin/plugins/jquery/jquery-1.7/jquery.alert.css" >
+<link rel="stylesheet" type="text/css" href="bigbin/plugins/jquery/jquery-ui-1.11.3/jquery-ui.css">
+<link rel="stylesheet" type="text/css" href="bigbin/plugins/common/override_jQueryui.css">
+<link rel="stylesheet" type="text/css" href="bigbin/plugins/pagination/pageBar.css">
+<link rel="stylesheet" type="text/css" href="bigbin/login/login/css/text-input.css">
+<link rel="stylesheet" type="text/css" href="bigbin/login/login/css/yhgl.css">
+
+<script type="text/javascript" src="bigbin/plugins/jquery/jquery-1.11.3/jquery.min.js"></script>
+<script type="text/javascript" src="bigbin/plugins/jquery/jquery-ui-1.11.3/jquery-ui.js"></script>
+<script type="text/javascript" src="bigbin/plugins/showLoading/jquery.showLoading.min.js"></script>
+<script type="text/javascript" src="bigbin/plugins/chosen/chosen.jquery.min.js"></script>
+<script type="text/javascript" src="bigbin/plugins/jquery/jquery-1.7/jquery.validate.js"></script>
+<script type="text/javascript" src="bigbin/plugins/jquery/jquery-1.7/validate.method.js"></script>
+<script type="text/javascript" src="bigbin/plugins/jquery/jquery-1.7/jquery.alert.js"></script>
+<script type="text/javascript" src="bigbin/plugins/jquery.sticky/sticky.full.js"></script>
+<script type="text/javascript" src="bigbin/plugins/pagination/pagination.js"></script>
+<script type="text/javascript" src="bigbin/plugins/common/js/util.js"></script>
+<script type="text/javascript" src="bigbin/login/login/js/yhgl.js"></script>
+</head>
+<body>
+<div id="main" class="main">
+
+	<div class="sub-title text-align-left border-bottom">
+		<span class="title-span">用户信息检索</span>
+	</div>
+
+	<div class="search-condition ">
+		<ul class="search-condition-ul">
+			<li class="search-condition-li">
+				<label for="username"><span class="commom-label">用户名</span></label>
+				<input id="username" class='input-text'>
+				<label for="email"><span class="commom-label" style="margin-left:35px;">邮箱</span></label>
+				<input id="email" class='input-text'>
+				
+				<input type="button" id='searchBtn' style="width: 70px;height: 30px; margin-left:15px;" value="查&nbsp;&nbsp;&nbsp;&nbsp;询">
+				<input type="button" id='resetBtn' style="width: 70px;height: 30px; margin-left:15px;" value="重&nbsp;&nbsp;&nbsp;&nbsp;置">
+			</li>
+		</ul>
+	</div>
+
+	<div class="sub-title text-algin-left border-top border-bottom">
+		<span  class="title-span">检索结果</span>
+		<select id="pageSizeSelect" class="float-right page-size-select" >
+			<option value="20">显示20条</option>
+			<option value="30">显示30条</option>
+			<option value="50">显示50条</option>
+		</select>
+	</div>
+	<div id="main-content" class="main-content">
+		<ul>
+			
+		</ul>
+	</div>
+	<div id="pageDiv"  style="height:50px;" class="border-top">
+		<div id="pagination" class="pagination"></div>
+	</div>
+	
+		<div id="yhxqDialog">
+		<form id="yhgl_form" name="yhgl_form">
+			<table>
+				<tr>
+					<td>
+						<label>用 户 名：</label>
+						<input class="form_input" type="text" id="tBusername" name="tBusername" value="" />
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<label>密码：</label>
+						<input class="form_input" type="text" id="tBpassword" name="tBpassword" value="" />
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<label>手&nbsp;&nbsp;机：</label>
+						<input class="form_input" type="text" id="tBphone" name="tBphone" value="" />
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<label>邮&nbsp;&nbsp;箱：</label>
+						<input class="form_input" type="email" id="tBemail" name="tBemail" value="" />
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<label>注册时间：</label>
+						<input class="form_input" type="text" id="tBzcsj" disabled value="" />
+						<input id="tBxlh" type="hidden">
+					</td>
+				</tr>
+			</table>
+		</form>
+		</div>
+	
+</div>
+</body>
+</html>

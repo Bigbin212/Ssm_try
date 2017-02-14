@@ -1,0 +1,82 @@
+@CHARSET "UTF-8";
+
+img{
+	vertical-align:bottom;
+	display:block;
+}
+
+.stepPage-content{
+	position:relative;
+	overflow: auto;
+	margin: auto;
+}
+
+.stepPage-content-head {
+    border-bottom: 1px solid #d6d6d8;
+    color: #333;
+    font: 400 22px/24px "微软雅黑";
+    margin: 20px 0 20px 0;
+    padding-bottom: 7px;
+}
+
+.stepPage-content ol li {
+    margin-left: 18px;
+    margin-top: 1px;
+    min-height: 32px;
+    padding: 45px 0 0 35px;
+}
+
+.stepPage-content-list.list-item-1 {
+    margin-top: 0;
+    padding-top: 0;
+}
+
+.stepPage-content-list {
+    display: block;
+    min-height: 32px;
+    position: relative;
+}
+
+.list-icon {
+    background: url("../image/step_ol_bg.png") no-repeat scroll 0 0;
+    color: #efe;
+    font-size: 16px;
+    height: 32px;
+    left: -18px;
+    line-height: 32px;
+    position: absolute;
+    text-align: center;
+    top: 43px;
+    width: 32px;
+}
+
+.list-item-1 .list-icon {
+    top: 0;
+}
+
+.step-content-order {
+    position: fixed;
+    width: 32px;
+    display:block;
+}
+
+.list-icon-link {
+    background: url("../image/step_ico_bg.png") no-repeat scroll 0 -68px;
+    color: #fff;
+    cursor: pointer;
+    display: block;
+    font-size: 16px;
+    height: 34px;
+    line-height: 32px;
+    text-align: center;
+    text-decoration: none;
+    width: 32px;
+}
+
+.list-icon-link:HOVER{
+    background-position: 0 0;
+}
+
+.list-icon-link.list-icon-current{
+	background-position: 0 0;
+}

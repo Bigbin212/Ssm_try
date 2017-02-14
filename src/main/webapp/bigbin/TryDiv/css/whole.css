@@ -1,0 +1,114 @@
+* {
+	margin: 0;
+	padding: 0
+}
+
+html, body {
+	overflow-x:hidden;
+	overflow-y:hidden;
+	height: 100%;
+	margin: 0;
+	padding: 0;
+	font: 14px/1 "Microsoft Yahei", 微软雅黑, Tahoma, Helvetica, Arial,sans-serif;
+	font-size: 13px;
+	font-weight: normal;
+}
+
+/*顶部面板样式*/
+#header {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 80px;
+	background-color:#F1E2C3;
+}
+/*网站logo DIV样式*/
+#logo {
+	width: 290px;
+	height: 50px;
+	background-color:#F1E2C3;
+	background-image: url(../images/logo.png);
+	background-repeat: no-repeat; /*背景图片不平铺*/
+	background-position: center;
+	text-align: center;
+}
+/*导航主菜单DIV样式*/
+#menu {
+	height: 30px;
+}
+/*无序列表与列表项消除间距*/
+#menu ul{
+	white-space: nowrap;
+	overflow:hidden; 
+	position: absolute;
+	display: inline-block;
+	margin: 0px;
+	padding: 0px;
+	/* background-color:rgb(77 197 222);  */
+}
+/*列表项样式*/
+#menu li {
+	/* float: left; */ /*所有列表项水平排列*/
+	display:inline-block;
+	text-align: center;/*文字样式居中*/
+	list-style: none; /*去掉列表项的样式(小圆点)*/
+	line-height: 30px; /*行高*/
+	font-weight: bold; /*字体加粗*/
+	font-size: 12px;/*字体大小*/
+	background-image: url(../images/menu_li.png);/*背景图片*/
+}
+/*超链接样式*/
+#menu a {
+	color: #333333; /*深灰色*/
+	text-decoration: none; /*去下划线*/
+	height: 30px;
+	width: 85px;
+	display: inline-block;
+}
+/*当鼠标移动到a标签上时的样式*/
+#menu a:hover {
+	background-color:#77DDFF;/*背景颜色*/
+}
+/*当鼠标点击a标签时*/
+#menu a:focus {  
+    outline:none;  
+    background-color:#77DDFF;/*背景颜色*/
+}  
+/*中间部分面板样式*/
+#main {
+	position: absolute;
+	top: 80px;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	width: 100%;
+	_height: 100%;
+}
+
+/*元素的实际占位尺寸 width = 元素尺寸 + padding + 边框宽度border
+     元素实际占位高度  height= height属性 + 上下padding + 上下边框宽度border */
+#main_left /* , #main_right */{
+	position: absolute;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	overflow: hidden;
+	width: 85px;
+	height: 100%;
+	background: #666;
+}
+#main_content {
+	float: left;
+	width: 100%;
+	height: 100%;
+	_overflow: auto;
+}
+
+/*底部面板样式*/
+/* #footer {
+	position: absolute;
+	bottom: 3px;
+	left: 0;
+	width: 100%;
+} */

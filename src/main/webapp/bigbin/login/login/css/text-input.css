@@ -1,0 +1,109 @@
+@CHARSET "UTF-8";
+
+html {
+	color: #000;
+	background: #ECECEC;
+	height:100%;
+}
+
+html, body, div, dl, dt, dd, object, iframe, ul, ol, li, h1, h2, h3, h4,
+	h5, h6, input, button, textarea, p, blockquote, th, td {
+	margin: 0;
+	padding: 0;
+}
+
+body, input, button, textarea {
+	font: 14px/1 "Microsoft Yahei", 微软雅黑, Tahoma, Helvetica, Arial,sans-serif;
+	font-size: 14px;
+	font-weight: normal;
+	outline: none;
+}
+
+/* input[type="text"], button, textarea {	
+	border:1px solid #D1D1D1;
+	outline: none;
+}
+input[type="text"]:focus, textarea:focus {	
+	border:1px solid #36A9E1;
+}
+
+input[type="text"]{
+	height:28px;
+	line-height:28px;
+} */
+
+
+.input-text{
+	font-size:14px;
+	font-family: "Microsoft Yahei", 微软雅黑, Arial;
+	background: #f9f9f9 none repeat scroll 0 0;/*ued色号:16*/
+    border: 1px solid #d1d1d1;
+    border-radius: 2px;
+    color: #787878;
+    height: 28px;
+    line-height: 28px;
+    padding-bottom: 1px;
+    padding-left: 10px;
+    padding-top: 1px;
+}
+
+.input-text:focus {
+    border: 1px solid #bce4f7;/*ued色号:19*/
+    background: #ffffff none repeat scroll 0 0;
+}
+
+/***定义输入框长度样式*/
+.input-ms{
+	width:60px;
+}
+.input-ml{
+	width:80px;
+	padding-left:10px;
+}
+.input-l{
+	width:120px;
+}
+.input-xl{
+	width:150px;
+}
+.input-xxl{
+	width:223px;
+	padding-left:10px;
+}
+
+.float-left{
+	float:left;
+}
+.float-right{
+	float:right;
+}
+
+.text-align-left{
+	text-align:left;
+}
+.text-align-center{
+	text-align:center;
+}
+.text-align-right{
+	text-align:right;
+}
+
+.border-left{
+	border-left:1px solid #D1D1D1;
+}
+.border-top{
+	border-top:1px solid #D1D1D1;
+}
+.border-right{
+	border-right:1px solid #D1D1D1;
+}	
+.border-bottom{
+	border-bottom:1px solid #D1D1D1;
+}	
+.border-all{
+	border:1px solid #D1D1D1;
+}
+
+.margin-auto{
+	margin:auto;
+}

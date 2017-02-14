@@ -1,0 +1,100 @@
+@charset "utf-8";
+
+.slideBox {
+	position: relative;
+	border: 1px solid #ddd;
+}
+.slideBox ul, .slideBox li {
+	list-style: none;
+}
+
+.slideBox .hd {
+	height: 15px;
+	position: absolute;
+	text-align: center;
+	bottom: 4px;
+	z-index: 1;
+	left: 50%;
+}
+
+.slideBox .hd ul {
+	text-align: center;
+	float: left;
+	zoom: 1;
+	margin: 0px;
+	padding: 0px;
+}
+
+.slideBox .hd ul li {
+	float: left;
+	margin-right: 2px;
+	width: 15px;
+	height: 15px;
+	line-height: 14px;
+	text-align: center;
+	background: #fff;
+	cursor: pointer;
+}
+
+.slideBox .hd ul li.on {
+	background: #f00;
+	color: #fff;
+}
+
+.slideBox .bd {
+	position: relative;
+	height: 100%;
+	z-index: 0;
+}
+
+.slideBox .bd ul {
+	width: 100%;
+	height: 100%;
+	margin: 0px;
+	padding: 0px;
+}
+
+.slideBox .bd li {
+	width: 100%;
+	height: 100%;
+	zoom: 1;
+	vertical-align: middle;
+}
+/* 显示区域图片的大小 */
+.slideBox .bd img {
+	display: block;
+}
+
+/* 下面是前/后按钮代码，如果不需要注释即可 */
+.slideBox .prev, .slideBox .next {
+	position: absolute;
+	left: 0;
+	top: 50%;
+	margin-top: -25px;
+	display: block;
+	width: 32px;
+	height: 40px;
+	background: url(../images/slider-arrow.png) -110px 5px no-repeat;
+	filter: alpha(opacity = 50);
+	opacity: 0.5;
+	outline:0; /*消除点击时出现虚线框*/
+}
+
+.slideBox .next {
+	left: auto;
+	right: 0;
+	background-position: 8px 5px;
+}
+
+.slideBox .prev:hover, .slideBox .next:hover {
+	filter: alpha(opacity = 100);
+	opacity: 1;
+}
+
+.slideBox .prevStop {
+	display: none;
+}
+
+.slideBox .nextStop {
+	display: none;
+}

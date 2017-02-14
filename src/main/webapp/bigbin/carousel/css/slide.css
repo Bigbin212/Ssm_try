@@ -1,0 +1,28 @@
+@CHARSET "UTF-8";
+* {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+html,body{
+	height:100%;
+	width:100%;
+	margin: 0px;
+	padding: 0px;
+	overflow: hidden;
+}
+
+body {
+	font: 14px/18px "Microsoft Yahei", Tahoma, Helvetica, Arial, Verdana,"\5b8b\4f53", sans-serif;
+	color: #51555C;
+	background:#f9f9f9; 
+	border:none;
+}
+
+#topDiv{
+	background-color:gray;
+}
+#centerDiv{
+	background:white;
+	border-bottom: 1px solid #d1d1d1;
+}

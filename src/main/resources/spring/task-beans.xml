@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans.xsd
+    http://www.springframework.org/schema/context
+    http://www.springframework.org/schema/context/spring-context.xsd"> 
+	
+	<!-- 定时任务Bean 定时删除日志-->
+	<bean id="deleteImageTask" class="com.lbcom.dadelion.common.DeleteLogTask" />
+	
+    <!-- 定义调用对象和调用对象的方法 -->
+	<bean id="deleteImageTaskDetail"
+		class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+		<!-- 调用的类 -->
+		<property name="targetObject" ref="deleteImageTask" />
+		<!-- 调用类中的方法 -->
+		<property name="targetMethod" value="delete" />
+		<!-- 是否允许任务并发执行。当值为false时，表示必须等到前一个线程处理完毕后才再启一个新的线程 -->
+		<property name="concurrent" value="true" />
+	</bean>
+	
+	<bean id="deleteImageTaskTrigger" class="org.springframework.scheduling.quartz.CronTriggerFactoryBean"> 
+	<property name="jobDetail"> 
+	<ref bean="deleteImageTaskDetail" /> 
+	</property> 
+	<!-- cron表达式 --> 
+	<property name="cronExpression"> 
+	<!-- 每天凌晨1点 --> 
+	<value>0 0 1 * * ?</value>  
+	<!-- For test 不执行任务--> 
+	<!--<value>0 0 0 ? * * 2099</value> -->
+	<!-- For test 中午12点20分--> 
+	<!--<value>0 20 12 ? * *</value> -->
+	</property> 
+	</bean> 
+
+	<!-- 总管理类：如果lazy-init='false'，那么容器启动后就会执行调度程序 -->
+	<!-- 如果lazy-init='true'，则需要实例化该bean才能执行调度程序 -->
+	<bean name="jobSchFactory" 
+		class="org.springframework.scheduling.quartz.SchedulerFactoryBean">
+		<property name="triggers">
+			<list>
+				<ref bean="deleteImageTaskTrigger" />
+			</list>
+		</property>
+		<!--<property name="autoStartup" value="true"/> -->
+	</bean>
+</beans>
