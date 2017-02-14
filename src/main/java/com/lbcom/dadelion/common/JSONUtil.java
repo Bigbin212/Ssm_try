@@ -2,7 +2,9 @@ package com.lbcom.dadelion.common;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+
 import javax.servlet.http.HttpServletResponse;
+
 import net.sf.json.JSONObject;
 /**
  * @Description 将List,Map,bean 等传递到页面 工具类
@@ -45,6 +47,31 @@ public class JSONUtil {
 				out.close();
 			}
 
+		}
+	}
+	
+	
+    /**
+	 * 字符串写到输出流
+	 * writeStringToResponse(这里用一句话描述这个方法的作用)        
+	 * @param        
+	 * @return void    
+	 * @Exception 异常对象
+	 */
+	public static void writeStringToResponse(HttpServletResponse response ,String msg){
+		 PrintWriter out = null ;
+    	 response.setCharacterEncoding("utf-8");
+    	 response.setContentType("text/html;charset=utf-8");
+    	 try {
+			out = response.getWriter();
+			out.print(msg);
+			out.flush();
+		} catch (IOException e) {
+			e.printStackTrace();
+		} finally{
+			if(null !=out){
+				out.close();
+			}
 		}
 	}
 }
