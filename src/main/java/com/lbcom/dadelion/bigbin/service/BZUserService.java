@@ -42,7 +42,6 @@ public class BZUserService extends BaseService<BZUser>{
 	 * @return
 	 */
 	public List<BZUser> registerCheck(HashMap<String, Object> paramMap) {
-		log.error("测试："+paramMap);
 		return _dao.selectByMap(paramMap);
 	}
 

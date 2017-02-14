@@ -14,7 +14,6 @@ import javax.servlet.http.HttpSession;
 
 import net.sf.json.JSONObject;
 
-import org.apache.log4j.Logger;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
@@ -39,7 +38,6 @@ public class LoginController extends BaseResource<BZUser>{
 	BZUserService user_ser;
 
 	private static MessageDigest digest = null;
-	private static Logger log = Logger.getLogger(LoginController.class);
 
 	/**
 	 * 登录主页面
@@ -52,7 +50,6 @@ public class LoginController extends BaseResource<BZUser>{
 		HashMap<String, Object> map = new HashMap<String, Object>();
 		String ip = IpGet.getIpAddress(request);
 		map.put("ip", ip);
-		log.error("获取到登录的用户IP: "+ip);
 		return new ModelAndView("bigbin/login/login/login.html", map);
 	}
 	/**

@@ -25,7 +25,7 @@ import com.lbcom.dadelion.common.JSONUtil;
 import com.lbcom.dadelion.common.StringUtil;
 
 /**
- * @CopyRight ©1995-2016: 苏州科达科技股份有限公司 
+ * @CopyRight ©1995-2016: 
  * @Project： 
  * @Module：
  * @Description 
@@ -45,7 +45,6 @@ public class UserMessageController {
 		String ip = IpGet.getIpAddress(request);
 		map.put("username", username);
 		map.put("ip", ip);
-		log.error("[error] 用户名："+username +"-------[ip:]"+ ip);
 		return new ModelAndView("bigbin/login/userMessage/userMessage.html", map);
 	}
 	
