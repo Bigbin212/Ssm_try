@@ -31,7 +31,7 @@ public abstract class BaseService<T> {
 
     public int insert( T t ){
 
-        myLogger.error( t );
+        myLogger.debug( t );
         try{
             return dao.insert( t );
         }catch ( Exception e ){
@@ -42,7 +42,7 @@ public abstract class BaseService<T> {
 
     public int insertPatch( List<T> t ){
 
-        myLogger.error( t );
+        myLogger.debug( t );
         try{
             return dao.insertPatch(t);
         }catch ( Exception e ){
@@ -54,7 +54,7 @@ public abstract class BaseService<T> {
 
     public int updateByKey( T t ){
 
-        myLogger.error( t );
+        myLogger.debug( t );
         try{
             return dao.updateByKey(t);
         }catch ( Exception e ){
@@ -65,7 +65,7 @@ public abstract class BaseService<T> {
 
     public int updatePatchByKey( List<T> t ){
 
-        myLogger.error( t );
+        myLogger.debug( t );
         try{
             return dao.updatePatchByKey(t);
         }catch ( Exception e ){
@@ -78,7 +78,7 @@ public abstract class BaseService<T> {
     @SuppressWarnings("rawtypes")
 	public int updateByMap( Map map ){
 
-        myLogger.error( map );
+        myLogger.debug( map );
         try{
             return dao.updateByMap(map);
         }catch ( Exception e ){
@@ -90,8 +90,8 @@ public abstract class BaseService<T> {
     public List<T> selectByExample(MapperExample mapperExample, RowBounds rowBounds){
 
         List<T> resultList = new ArrayList<T>();
-        myLogger.error( mapperExample.createCriteria().getAllCriteria() );
-        myLogger.error( rowBounds );
+        myLogger.debug( mapperExample.createCriteria().getAllCriteria() );
+        myLogger.debug( rowBounds );
         try{
             resultList = dao.selectByExample(mapperExample, rowBounds);
         }catch ( Exception e ){
@@ -104,8 +104,8 @@ public abstract class BaseService<T> {
     {
 
         List<T> resultList = new ArrayList<T>();
-        myLogger.error( params );
-        myLogger.error( rowBounds );
+        myLogger.debug( params );
+        myLogger.debug( rowBounds );
         try{
             resultList = dao.selectByMap(params, rowBounds);
         }catch ( Exception e) {
@@ -117,7 +117,7 @@ public abstract class BaseService<T> {
 
     public T selectByKey( Object key ){
 
-        myLogger.error( key );
+        myLogger.debug( key );
         T t = null;
         try{
             t = dao.selectByKey(key);
@@ -129,7 +129,7 @@ public abstract class BaseService<T> {
 
     public int countByExample(MapperExample mapperExample){
 
-        myLogger.error( mapperExample.createCriteria().getAllCriteria() );
+        myLogger.debug( mapperExample.createCriteria().getAllCriteria() );
         int count = 0;
         try{
 
@@ -144,7 +144,7 @@ public abstract class BaseService<T> {
 
     public int countByMap(Map<String, Object> params)
     {
-        myLogger.error( params );
+        myLogger.debug( params );
         int count = 0;
         try{
 
@@ -159,7 +159,7 @@ public abstract class BaseService<T> {
 
     public int deleteByKey(Object key){
 
-        myLogger.error( key );
+        myLogger.debug( key );
         try{
             return dao.deleteByKey(key);
         }catch ( Exception e ){
@@ -171,7 +171,7 @@ public abstract class BaseService<T> {
 
     public int deleteByExample(MapperExample mapperExample){
 
-        myLogger.error( mapperExample.createCriteria().getAllCriteria() );
+        myLogger.debug( mapperExample.createCriteria().getAllCriteria() );
         try{
             return dao.deleteByExample(mapperExample);
         }catch ( Exception e ){

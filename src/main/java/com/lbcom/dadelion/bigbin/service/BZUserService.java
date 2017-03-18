@@ -75,6 +75,7 @@ public class BZUserService extends BaseService<BZUser>{
 		int total = _dao.countByMap(map);
 		try {
 			list= _dao.selectByMap(map, new RowBounds(iOffset,iPageSize));
+			log.debug("查询用户时异常！");
 			if (list.size() > 0) {
 				Collections.sort(list,new YhComparator());
 			}

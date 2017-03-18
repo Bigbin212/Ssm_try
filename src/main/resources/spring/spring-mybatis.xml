@@ -59,7 +59,7 @@ xsi:schemaLocation="
 		<property name="mapperLocations" value="classpath*:com/lbcom/**/*.xml" />
         <property name="typeAliasesPackage" value="com.lbcom.**.model" />
 		
-		<!-- <property name="plugins">
+		<property name="plugins">
 	   		<array>
      			<bean class="com.github.pagehelper.PageHelper">
 	       			<property name="properties">
@@ -71,7 +71,7 @@ xsi:schemaLocation="
 	      			</property>
      			</bean>
 	   		</array>
- 		</property> -->
+ 		</property>
 		
 	</bean>
 

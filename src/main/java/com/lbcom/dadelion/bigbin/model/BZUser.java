@@ -205,4 +205,13 @@ public class BZUser {
 		this.zcsj = zcsj;
 	}
     
+	private String yhqx;
+
+	public String getYhqx() {
+		return yhqx;
+	}
+
+	public void setYhqx(String yhqx) {
+		this.yhqx = yhqx;
+	}
 }

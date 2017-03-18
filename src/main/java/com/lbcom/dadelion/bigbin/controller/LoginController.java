@@ -127,6 +127,8 @@ public class LoginController extends BaseResource<BZUser>{
    	    }else {
 			session.setAttribute("username", username);
 			session.setAttribute("xlh", result.get(0).getXlh());
+			BZUser zUser = result.get(0);
+			jsonObject.put("meg", zUser.getYhqx());
 		}
 	    response.getWriter().print(jsonObject);
 	}	

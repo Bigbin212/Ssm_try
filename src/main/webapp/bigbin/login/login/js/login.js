@@ -166,7 +166,7 @@ function login() {
 						delCookie("username");
 						delCookie("password");
 					}
-					if(form.username == "admin" && form.password == "admin"){
+					if(result.meg == '0'){
 						window.location = "./yhgl.do";
 					}else{
 						window.location = "./mainview.do";

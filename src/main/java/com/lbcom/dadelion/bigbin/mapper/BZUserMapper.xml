@@ -14,6 +14,7 @@
     <result column="email" property="email" jdbcType="VARCHAR" />
     <result column="phone" property="phone" jdbcType="VARCHAR" />
     <result column="zcsj" property="zcsj" jdbcType="TIMESTAMP" />
+     <result column="yhqx" property="yhqx" jdbcType="VARCHAR" />
   </resultMap>
   <sql id="Example_Where_Clause" >
     <!--
@@ -84,7 +85,7 @@
     </where>
   </sql>
   <sql id="Base_Column_List" >
-    xlh, username, password, ip, email, phone,zcsj
+    xlh, username, password, ip, email, phone,zcsj,yhqx
   </sql>
   <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.lbcom.dadelion.bigbin.model.BZUserExample" >
     select
@@ -285,7 +286,7 @@
 	    <if test="distinct" >
 	      distinct
 	    </if>
- 		XLH, USERNAME, PASSWORD,IP,EMAIL,PHONE,ZCSJ
+ 		XLH, USERNAME, PASSWORD,IP,EMAIL,PHONE,ZCSJ,YHQX
 	    from b_z_user where 1 = 1 
 	    <if test="username !=null and username !=''">
 	    	and username = #{username,jdbcType=VARCHAR} 

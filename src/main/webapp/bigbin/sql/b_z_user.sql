@@ -1,3 +1,19 @@
+/*
+Navicat MySQL Data Transfer
+
+Source Server         : localhost
+Source Server Version : 50615
+Source Host           : localhost:3306
+Source Database       : bigbin
+
+Target Server Type    : MYSQL
+Target Server Version : 50615
+File Encoding         : 65001
+
+Date: 2017-03-18 12:41:44
+*/
+
+SET FOREIGN_KEY_CHECKS=0;
 -- ----------------------------
 -- Table structure for `b_z_user`
 -- ----------------------------
@@ -9,11 +25,7 @@ CREATE TABLE `b_z_user` (
   `ip` varchar(128) DEFAULT NULL COMMENT 'ip地址',
   `email` varchar(64) NOT NULL COMMENT '邮箱',
   `zcsj` datetime DEFAULT NULL COMMENT '注册时间',
-  `phone` varchar(16) DEFAULT NULL,
+  `phone` varchar(16) DEFAULT NULL COMMENT '电话号码',
+  `yhqx` varchar(8) DEFAULT '1' COMMENT '权限',
   PRIMARY KEY (`xlh`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
--- ----------------------------
--- Records of b_z_user
--- ----------------------------
-INSERT INTO `b_z_user` VALUES ('c9cc9174d9894fee92223266df36f649', 'admin', 'admin', '172.16.192.171', 'xxxxx@qq.com', '2016-04-29 11:09:46', '13863336458');
