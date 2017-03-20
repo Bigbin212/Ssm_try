@@ -49,7 +49,7 @@ function initElementEvent(){
 		queryVehicleData(0);
 	});
 	
-	//详情
+/*	//详情
 	$('#main-content ul').on('click','.detail-span',function(event){
 		oprJson.way = "modify";
 		
@@ -61,7 +61,7 @@ function initElementEvent(){
 		$( "#yhxqDialog" ).dialog('open');
 		//停止冒泡
 		event.stopPropagation();
-	});
+	});*/
 	
 	//选中某个li时效果显示
 	$('#main-content').on('click','li',function(e){		
@@ -109,7 +109,7 @@ function queryVehicleData(page_index,jq) {
 				return;
 			}
 			//插入并显示所有的用户概略图
-			insertAndshowVehicleData(response.data);
+			insertAndshowData(response.data);
 		},
 		error:function(xmlHttpRequest, textStatue, errorThrown){
 			$('body').hideLoading();
@@ -227,67 +227,66 @@ function getQueryParams(){
  * 插入并显示数据
  * @param data
  */
-function insertAndshowVehicleData(data){
-	var liBody=null;
-	var vehicleInfo = null;
-	for(var i in data){
-		vehicleInfo = data[i];
-		if(!vehicleInfo){
-			continue;
-		}
-		liBody=[];
-		liBody.push('<li class="vehicle-data-li float-left" id="'+vehicleInfo.xlh+'">');
-		liBody.push('<div style="height:50px;line-height:50px;width: 100%;background-color: #F9F9F9;">');
-		liBody.push('<span class="flagDiv" style="height:45px;width: 45px;line-height:45px;float:left;"></span>'); //显示被选中的li
-		liBody.push('<span class="device-name-span" title="用户名:'+vehicleInfo.username+'">');
-		liBody.push(vehicleInfo.username);
-		liBody.push('</span>');
-		/* 鼠标悬停时显示提示文字 */
-		liBody.push('<span class="detail-span" title="详情">&nbsp;</span>');
-		liBody.push('<span class="detel-span" title="删除">&nbsp;</span>');
-		liBody.push('</div>');
-		liBody.push('<div class="chooseDiv" style="height:3px;width: 100%;">'); //显示被选中的li
-		liBody.push('<div class="list" title="注册时间'+new Date(vehicleInfo.zcsj.time).format("yyyy-MM-dd hh:mm:ss")+'">');
-		liBody.push('<span class="date"></span>');
-		liBody.push('<span>');
-		liBody.push(new Date(vehicleInfo.zcsj.time).format("yyyy-MM-dd hh:mm:ss"));
-		liBody.push('</span>');
-		liBody.push('</div>');
-
-		liBody.push('</li>');
+function insertAndshowData(data){
+	
+	var $ul = $('#main-content ul').empty();
+	$.each(data, function(index){
 		
-		$('#main-content ul').append(liBody.join(''));
-	}
+		var li = $("<li class='vehicle-data-li'>");
+		$ul.append(li);
+		
+		var topDiv = $("<div class='select-shadow'>");
+		
+		var flagDiv = $("<span class='flagDiv'></span>"); //显示被选中的li
+		topDiv.append(flagDiv);
+		
+		var userName = $("<span class='device-name-span' title='用户名:"+this.username+"'>");
+		userName.text(this.username);
+		topDiv.append(userName);
+		
+		var detail_span = $("<span class='detail-span' title='详情'>&nbsp;</span>");
+		topDiv.append(detail_span);
+		var detel_span = $("<span class='detel-span' title='删除'>&nbsp;</span>");
+		topDiv.append(detel_span);
+
+		li.append(topDiv);
+
+		var chooseDiv = $("<div class='chooseDiv' style='height:3px;width: 100%;'></div>"); //被选中的额外样式
+		li.append(chooseDiv);
+		
+		var bottomDiv = $("<div class='time-div' title='注册时间"+zcsjFormat(this.zcsj)+"'>");
+		bottomDiv.text(zcsjFormat(this.zcsj));
+		li.append(bottomDiv);
+		
+		li.data("data", this);
+	});
 	
 	//默认选中第一个
-	$("#main-content ul li").eq(0).click();
-}
-
-//加载用户详情
-function initYhInfo(xlh){
+	$("#main-content ul li").eq(0).click();	
 	
-	$.ajax({
-		type : "POST",// 以POST方式提交数据。
-		url : "./selectByxlh.do",
-		dataType : "json",
-		async : false,// 设置同步
-		data : {
-			xlh : xlh
-		},
-		success : function(data) {
-			// 向表单填充数据
-			initDeviceForm(data[0]);
-		},
-		error:function(xmlHttpRequest, textStatue, errorThrown){
-			$('#pageDiv').hideLoading();
-			if(xmlHttpRequest.status && xmlHttpRequest.status=='12029'){
-				jAlert("网络不通，或者平台已关闭!",'提示信息');
-			}else if(xmlHttpRequest.status && xmlHttpRequest.status=='200'){
-				jAlert("登陆超时");
-			}else{
-				jAlert("系统异常，请联系管理员");
-			}
-		}
+	//详情
+	$('#main-content ul').on('click','.detail-span',function(event){
+		oprJson.way = "modify";
+		
+		var obj = $(this).closest('li');
+		obj.click();
+		//加载用户详情
+		initDeviceForm(obj.data("data"));
+		$('#yhxqDialog').dialog("option","title", "用户详情");
+		$( "#yhxqDialog" ).dialog('open');
+		//停止冒泡
+		event.stopPropagation();
+	});
+	
+	//删除
+	$('#main-content ul').on('click','.detel-span',function(event){
+		oprJson.way = "delete";
+		
+		var obj = $(this).closest('li');
+		obj.click();
+		console.log(obj.data("data").xlh);
+		//停止冒泡
+		event.stopPropagation();
 	});
 }
 
@@ -305,7 +304,7 @@ function initDeviceForm(data){
 	$('#tBpassword').val(data.password);
 	$('#tBphone').val(data.phone);
 	$('#tBemail').val(data.email);
-	$('#tBzcsj').val(new Date(data.zcsj.time).format("yyyy-MM-dd hh:mm:ss"));
+	$('#tBzcsj').val(zcsjFormat(data.zcsj));
 	
 	if (formValidate) {
 		formValidate.destroy();
@@ -377,7 +376,7 @@ function Valid(nameAbleVal){
  * 保存用户信息
  */
 function save(type){
-	oprJson = {way:null};	//操作状态初始化
+		
 	var saveParam = {};
 	saveParam.xlh = $('#tBxlh').val();
 	saveParam.username = $('#tBusername').val();
@@ -391,8 +390,16 @@ function save(type){
 		data : saveParam,
 		dataType : "json",
 		success : function(data) {
-		
+			oprJson = {way:null};//操作状态初始化
 		}
 	});
 	
+}
+
+function zcsjFormat(value){
+	 if(value==null){
+		  return "";
+	  }else{
+		  return new Date(value.time).format("yyyy-MM-dd hh:mm:ss");
+	  }
 }

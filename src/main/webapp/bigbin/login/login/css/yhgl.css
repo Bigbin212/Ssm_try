@@ -63,30 +63,7 @@ li {
     overflow-y: auto;
     width: 100%;
 }
-.vehicle_data_ul {
-    margin: auto;
-}
-.vehicle-data-li {
-    border: 1px solid #cadbee;
-    height: 110px;
-    margin: 10px 3px 8px 15px;
-    width: 280px;
-}
-.vehicle-data-li:hover {
-    background-color: #e9f2f7;
-    border-color: #f7b53d;
-}
 
-.vehicle-data-li .vehicle-data-info{
-	font-size: 16px;
-    height: 20px;
-    line-height: 20px;
-    margin-top: 5px;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    text-align:center;
-    white-space: nowrap;
-}
 .list{
 	height:32px;
 	line-height:32px;
@@ -110,21 +87,6 @@ li {
 .pagination{
 	margin:0px;
 	margin-top:10px;
-}
-
-.device-name-span {
-	float:left;
-	height:45px;
-	line-height:45px;
-    display: inline-block;
-    overflow: hidden;
-    padding-left: 10px;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    width: 160px;
-}
-.divSelected {
-    background: #1e8fc6 none repeat scroll 0 0;
 }
 
 /**信息长度超出后显示省略号*/
@@ -180,4 +142,72 @@ li {
 .select-delete{
 	background: url('../../../plugins/common/images/icon/select-delete.png') no-repeat 0 0;
 	background-position:center;
+}
+
+
+.vehicle_data_ul {
+    margin: auto;
+}
+.vehicle-data-li {
+    border: 1px solid #cadbee;
+    height: 110px;
+    margin: 10px 3px 8px 15px;
+    width: 280px;
+    float:left;
+}
+.vehicle-data-li:hover {
+    background-color: #e9f2f7;
+    border-color: #f7b53d;
+}
+
+.vehicle-data-li .vehicle-data-info{
+	font-size: 16px;
+    height: 20px;
+    line-height: 20px;
+    margin-top: 5px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    text-align:center;
+    white-space: nowrap;
+}
+.device-name-span {
+	float:left;
+	height:45px;
+	line-height:45px;
+    display: inline-block;
+    overflow: hidden;
+    padding-left: 10px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    width: 160px;
+}
+.divSelected {
+    background: #1e8fc6 none repeat scroll 0 0;
+}
+.select-shadow{
+	height:50px;
+	line-height:50px;
+	width: 100%;
+	background-color: #F9F9F9;
+}
+/* 显示被选中的li */
+.flagDiv{
+	 height:45px;
+	 width: 45px;
+	 line-height:45px;
+	 float:left;
+}
+
+.time-div{
+	height:32px;
+	line-height:32px;
+    background-repeat: no-repeat;
+    padding-left: 5px;
+    background-position: 45px 8px;
+    background-image: url("../../login/images/minitime.png"); 
+    
+	text-overflow: ellipsis; /* for IE */  
+    -moz-text-overflow: ellipsis; /* for Firefox,mozilla */  
+    overflow: hidden;  
+    white-space: nowrap; 
 }

@@ -400,7 +400,7 @@ span.error{
 
 /* jquery ui dialog重载 */
 .ui-state-default, .ui-widget-content .ui-state-default, .ui-widget-header .ui-state-default {
-	background: transparent none repeat scroll 0 0;
+	/* background: transparent none repeat scroll 0 0; */
     border: 0;
 }
 
