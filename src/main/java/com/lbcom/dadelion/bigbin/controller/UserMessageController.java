@@ -23,6 +23,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.lbcom.dadelion.common.JSONUtil;
 import com.lbcom.dadelion.common.StringUtil;
+import com.lbcom.dadelion.util.ConfigManager;
 
 /**
  * @CopyRight ©1995-2016: 
@@ -37,6 +38,8 @@ import com.lbcom.dadelion.common.StringUtil;
 public class UserMessageController {
 	
 	private static Logger log = Logger.getLogger(UserMessageController.class);
+	private static final String nginx_url = "ngnix_url"; //图片访问路径
+	private static final String save_images = "save_images";//图片保存路径
 	@RequestMapping("/user-center.do")
 	public ModelAndView userCenter(HttpServletRequest request) throws IOException {
 		HashMap<String, Object> map = new HashMap<String, Object>();
@@ -58,12 +61,14 @@ public class UserMessageController {
 			JSONUtil.writeJSONObjectToResponse(response, jsonObject);
 			return;
 		}
-		String filePathString = getImgDir(request.getSession().getServletContext().getRealPath(""))+"/"+xlh+".jpg";
-		File file = new File(filePathString);
-		if(file.exists()){
-			String   ipAddr = getIpAndPort(request.getRequestURL().toString());
-		    jsonObject.put("url", ipAddr+"/userMessage/images/"+xlh+".jpg");
-		}
+		//String filePathString = getImgDir(request.getSession().getServletContext().getRealPath(""))+"/"+xlh+".jpg";
+		//File file = new File(filePathString);
+		//if(file.exists()){
+			//String ipAddr = getIpAndPort(request.getRequestURL().toString());
+			String url = ConfigManager.commonCfg.getString(nginx_url);
+		    //jsonObject.put("url", ipAddr+"/userMessage/images/"+xlh+".jpg");
+			jsonObject.put("url", url+xlh+".jpg");
+		//}
 		//返回数据
 		JSONUtil.writeJSONObjectToResponse(response, jsonObject);
 	}
@@ -78,6 +83,7 @@ public class UserMessageController {
 	public void uploadDevImg(HttpServletRequest request,HttpServletResponse response){
 		HttpSession session = request.getSession();
 		String xlh = (String) session.getAttribute("xlh");
+		String url = ConfigManager.commonCfg.getString(nginx_url);
 		
 		JSONObject jsonObject = new JSONObject();
 		MultipartResolver resolver = new CommonsMultipartResolver(request.getSession().getServletContext());
@@ -103,8 +109,8 @@ public class UserMessageController {
 			//文件输入流
 			in = images.getInputStream();
 			//获取ip和端口
-			String ipAddr = getIpAndPort(request.getRequestURL().toString());
-			String name = getImgDir(request.getSession().getServletContext().getRealPath(""))+xlh+".jpg";			
+			//String ipAddr = getIpAndPort(request.getRequestURL().toString());
+			String name = getImgDir(save_images)+xlh+".jpg";			
 			FileOutputStream fileOutputStream = new FileOutputStream(name);
 			byte[] buffer = new byte[1024];
 			while (in.read(buffer) !=-1) {
@@ -114,7 +120,9 @@ public class UserMessageController {
 			in.close();
 			fileOutputStream.flush();
 			fileOutputStream.close();	
-			jsonObject.put("url", ipAddr+"/userMessage/images/"+xlh+".jpg");
+			
+			jsonObject.put("url", url+xlh+".jpg");
+			//jsonObject.put("url", ipAddr+"/userMessage/images/"+xlh+".jpg");
 		}catch(Exception e){
 			jsonObject.put("msg", "头像保存失败!");
 		}
@@ -146,11 +154,13 @@ public class UserMessageController {
 	 * @Exception 异常对象
 	 */
 	private String getImgDir(String realPath){
-		int index = realPath.indexOf("webapps");
+	/*	int index = realPath.indexOf("webapps");
 		if(index>=0){
 			realPath = realPath.substring(0, index+7);
 		}
-		String filePath = realPath+"/userMessage/images/";
+		String filePath = realPath+"/userMessage/images/";*/
+		
+		String filePath = ConfigManager.commonCfg.getString(realPath);
 		File file = new File(filePath);
 		if(!file.exists()){
 			file.mkdirs();
