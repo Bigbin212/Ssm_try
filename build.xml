@@ -4,7 +4,7 @@
  	kdkk complie
 	</description>
 	<property file="build.properties"/>
-	<property name="file.war" value="ImageProxy.war" />
+	<property name="file.war" value="Ssm_try.war" />
 	
 	<property name="dir.jdk" value="${JDK.home}" />
 	<property name="build" value="${basedir}/build" />
