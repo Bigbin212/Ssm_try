@@ -9,7 +9,6 @@ html,body{
 	width:100%;
 	margin: 0px;
 	padding: 0px;
-	overflow: hidden;
 }
 
 body {
@@ -17,12 +16,4 @@ body {
 	color: #51555C;
 	background:#f9f9f9; 
 	border:none;
-}
-
-#topDiv{
-	background-color:gray;
-}
-#centerDiv{
-	background:white;
-	border-bottom: 1px solid #d1d1d1;
 }
