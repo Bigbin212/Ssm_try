@@ -1,9 +1,6 @@
 package com.lbcom.dadelion.bigbin.controller;
 
 import java.io.IOException;
-import java.io.UnsupportedEncodingException;
-import java.security.MessageDigest;
-import java.security.NoSuchAlgorithmException;
 import java.util.HashMap;
 import java.util.List;
 
@@ -36,8 +33,6 @@ public class LoginController extends BaseResource<BZUser>{
 
 	@Resource
 	BZUserService user_ser;
-
-	private static MessageDigest digest = null;
 
 	/**
 	 * 登录主页面
@@ -132,51 +127,4 @@ public class LoginController extends BaseResource<BZUser>{
 		}
 	    response.getWriter().print(jsonObject);
 	}	
-	
-	/**
-	   * 密码加密
-	   * @param password
-	   * @return
-	   */
-	@SuppressWarnings("unused")
-	private static final synchronized String codedPassword(String password)
-	  {
-	      if(digest == null)
-	          try
-	          {
-	              digest = MessageDigest.getInstance("MD5");
-	          }
-	          catch(NoSuchAlgorithmException nsae)
-	          {
-	              nsae.getStackTrace();
-	          }
-	      try
-	      {
-	          digest.update(password.getBytes("utf-8"));
-	      }
-	      catch(UnsupportedEncodingException e)
-	      {
-	          e.getStackTrace();
-	      }
-	      return encodeHex(digest.digest());
-	  }
-
-	  /**
-	   * 密码编码
-	   * @param bytes
-	   * @return
-	   */
-	  private static final String encodeHex(byte bytes[])
-	  {
-	      StringBuffer buf = new StringBuffer(bytes.length * 2);
-	      for(int i = 0; i < bytes.length; i++)
-	      {
-	          if((bytes[i] & 255) < 16)
-	              buf.append("0");
-	          buf.append(Long.toString(bytes[i] & 255, 16));
-	      }
-
-	      return buf.toString();
-	  }
-
 }

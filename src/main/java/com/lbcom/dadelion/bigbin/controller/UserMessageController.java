@@ -70,7 +70,7 @@ public class UserMessageController {
 		}
 		List<BZUser> list = null;
 		list = zser.selectByPrimaryKey(xlh);
-		if(list != null && list.size() > 0){
+		if(!StringUtil.isNULLOrEmpty(list)){
 			jsonObject.put("url", list.get(0).getPhoto());
 		}
 		//String url = zser.selectByKey(xlh);
