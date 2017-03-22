@@ -5,7 +5,9 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.HashMap;
+import java.util.List;
 
+import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -21,6 +23,8 @@ import org.springframework.web.multipart.MultipartResolver;
 import org.springframework.web.multipart.commons.CommonsMultipartResolver;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.lbcom.dadelion.bigbin.model.BZUser;
+import com.lbcom.dadelion.bigbin.service.BZUserService;
 import com.lbcom.dadelion.common.JSONUtil;
 import com.lbcom.dadelion.common.StringUtil;
 import com.lbcom.dadelion.util.ConfigManager;
@@ -40,6 +44,9 @@ public class UserMessageController {
 	private static Logger log = Logger.getLogger(UserMessageController.class);
 	private static final String nginx_url = "ngnix_url"; //图片访问路径
 	private static final String save_images = "save_images";//图片保存路径
+	
+	@Resource BZUserService zser;
+	
 	@RequestMapping("/user-center.do")
 	public ModelAndView userCenter(HttpServletRequest request) throws IOException {
 		HashMap<String, Object> map = new HashMap<String, Object>();
@@ -61,13 +68,19 @@ public class UserMessageController {
 			JSONUtil.writeJSONObjectToResponse(response, jsonObject);
 			return;
 		}
+		List<BZUser> list = null;
+		list = zser.selectByPrimaryKey(xlh);
+		if(list != null && list.size() > 0){
+			jsonObject.put("url", list.get(0).getPhoto());
+		}
+		//String url = zser.selectByKey(xlh);
 		//String filePathString = getImgDir(request.getSession().getServletContext().getRealPath(""))+"/"+xlh+".jpg";
 		//File file = new File(filePathString);
 		//if(file.exists()){
 			//String ipAddr = getIpAndPort(request.getRequestURL().toString());
-			String url = ConfigManager.commonCfg.getString(nginx_url);
+			//String url = ConfigManager.commonCfg.getString(nginx_url);
 		    //jsonObject.put("url", ipAddr+"/userMessage/images/"+xlh+".jpg");
-			jsonObject.put("url", url+xlh+".jpg");
+			//jsonObject.put("url", url+xlh+".jpg");
 		//}
 		//返回数据
 		JSONUtil.writeJSONObjectToResponse(response, jsonObject);
@@ -121,6 +134,11 @@ public class UserMessageController {
 			fileOutputStream.flush();
 			fileOutputStream.close();	
 			
+			BZUser line = new BZUser();
+			line.setXlh(xlh);
+			line.setPhoto(url+xlh+".jpg");
+			zser.updateByPrimaryKey(line);
+			
 			jsonObject.put("url", url+xlh+".jpg");
 			//jsonObject.put("url", ipAddr+"/userMessage/images/"+xlh+".jpg");
 		}catch(Exception e){
@@ -135,6 +153,7 @@ public class UserMessageController {
 	 * @return String    
 	 * @Exception 异常对象
 	 */
+	@SuppressWarnings("unused")
 	private String  getIpAndPort(String url){
 		String ipString = null;
 		try {
@@ -143,7 +162,7 @@ public class UserMessageController {
 		} catch (Exception e) {
 			log.error("解析url异常" + e.getMessage());
 		}
-			return ipString;
+		return ipString;
 	}
 	
 	

@@ -14,7 +14,10 @@
     <result column="email" property="email" jdbcType="VARCHAR" />
     <result column="phone" property="phone" jdbcType="VARCHAR" />
     <result column="zcsj" property="zcsj" jdbcType="TIMESTAMP" />
-     <result column="yhqx" property="yhqx" jdbcType="VARCHAR" />
+    <result column="photo" property="photo" jdbcType="VARCHAR" />
+    <result column="yhqx" property="yhqx" jdbcType="VARCHAR" />
+     
+     
   </resultMap>
   <sql id="Example_Where_Clause" >
     <!--
@@ -85,7 +88,7 @@
     </where>
   </sql>
   <sql id="Base_Column_List" >
-    xlh, username, password, ip, email, phone,zcsj,yhqx
+    xlh, username, password, ip, email, phone,zcsj,photo,yhqx
   </sql>
   <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.lbcom.dadelion.bigbin.model.BZUserExample" >
     select
@@ -129,12 +132,12 @@
   </delete>
   <!-- 插入注册信息 -->
   <insert id="insert" parameterType="com.lbcom.dadelion.bigbin.model.BZUser" >
-    insert into B_Z_USER (XLH, USERNAME, PASSWORD,IP,EMAIL,PHONE,ZCSJ)
+    insert into B_Z_USER (XLH, USERNAME, PASSWORD,IP,EMAIL,PHONE,ZCSJ,PHOTO)
     values (
     			#{xlh,jdbcType=VARCHAR}, #{username,jdbcType=VARCHAR},
     			#{password,jdbcType=VARCHAR},#{ip,jdbcType=VARCHAR},
     			#{email,jdbcType=VARCHAR},#{phone,jdbcType=VARCHAR},
-    			#{zcsj,jdbcType=TIMESTAMP}
+    			#{zcsj,jdbcType=TIMESTAMP},#{photo,jdbcType=VARCHAR}
     		)
   </insert>
   <insert id="insertSelective" parameterType="com.lbcom.dadelion.bigbin.model.BZUser" >
@@ -273,10 +276,23 @@
    <!-- 根据xlh更新数据 -->
   <update id="updateByPrimaryKey" parameterType="com.lbcom.dadelion.bigbin.model.BZUser" >
     update b_z_user
-    set USERNAME = #{username,jdbcType=VARCHAR},
-      PASSWORD = #{password,jdbcType=VARCHAR},
-      EMAIL = #{email,jdbcType=VARCHAR},
-      PHONE = #{phone,jdbcType=VARCHAR}
+   <set >
+    <if test="username !=null and username !=''">
+    	USERNAME = #{username,jdbcType=VARCHAR},
+    </if>
+     <if test="password !=null and password !=''">
+     	PASSWORD = #{password,jdbcType=VARCHAR},
+     </if>
+      <if test="email != null and email != ''">
+      	EMAIL = #{email,jdbcType=VARCHAR},
+      </if>
+      <if test="phone != null and phone != ''">
+      	PHONE = #{phone,jdbcType=VARCHAR},
+      </if>
+      <if test="photo != null and photo != ''">
+      	PHOTO = #{photo,jdbcType=VARCHAR}
+      </if>
+     </set>
     where XLH = #{xlh,jdbcType=VARCHAR}
   </update>
   
