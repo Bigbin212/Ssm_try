@@ -723,6 +723,7 @@
 							if (!isMarq)
 								resetInter();
 						}
+						$(".hd").scrollLeft(index*100);
 					}
 					var prevTrigger = function() {
 						if (pnLoop || index != 0) {
@@ -731,6 +732,7 @@
 							if (!isMarq)
 								resetInter();
 						}
+						$(".hd").scrollLeft(index*100);
 					}
 					// 处理playState
 					var playStateFun = function() {
