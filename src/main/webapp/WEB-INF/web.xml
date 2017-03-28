@@ -64,7 +64,7 @@
   <!-- 配置servlet根据.do访问页面 -->
   <servlet-mapping>
     <servlet-name>springMvc</servlet-name>
-    <url-pattern>*.do</url-pattern>
+    <url-pattern>/*</url-pattern>
   </servlet-mapping>
   
   <session-config>
