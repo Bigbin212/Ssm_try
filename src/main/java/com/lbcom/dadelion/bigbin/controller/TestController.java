@@ -40,4 +40,8 @@ public class TestController {
 	public String html5video(){
 		return"bigbin/vidbg/fullscreenDemo.html";
 	}
+	@RequestMapping("/nodify.do")
+	public String noDify(){
+		return "bigbin/testiNodify/iNodify.html";
+	}
 }
