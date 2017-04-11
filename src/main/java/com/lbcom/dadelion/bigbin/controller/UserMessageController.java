@@ -10,6 +10,7 @@ import java.util.List;
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
 import net.sf.json.JSONObject;
 
 import org.apache.log4j.Logger;
@@ -46,13 +47,14 @@ public class UserMessageController {
 	@Resource BZUserService zser;
 	
 	@RequestMapping("/user-center")
-	public ModelAndView userCenter(HttpServletRequest request) throws IOException {
+	public ModelAndView userCenter(HttpServletRequest request,String username2) throws IOException {
 		HashMap<String, Object> map = new HashMap<String, Object>();
 		String username = (String) request.getSession(true).getAttribute("username");
 		String ip = IpGet.getIpAddress(request);
 		map.put("username", username);
 		map.put("ip", ip);
-		return new ModelAndView("bigbin/login/userMessage/userMessage", map);
+		return new ModelAndView("bigbin/login/userMessage/userMessage","map",map);
+		
 	}
 	
 	@RequestMapping("/getUserImage")

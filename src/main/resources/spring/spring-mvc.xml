@@ -15,8 +15,8 @@ http://www.springframework.org/schema/mvc/spring-mvc-3.2.xsd">
 	<!-- 对模型视图名称的解析，即在模型视图名称添加前后缀 -->
 	<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver"> 
 		 <property name="contentType" value="text/html" />
-		 <property name="prefix" value="/" /> 
-		 <property name="suffix" value=".html" /><!-- 可为空,方便实现自已的依据扩展名来选择视图解释类的逻辑 --> 
+		 <property name="prefix" value="" /> 
+		 <property name="suffix" value=".html" /> <!-- 可为空,方便实现自已的依据扩展名来选择视图解释类的逻辑   -->
 	</bean>
      
 	<!-- 
@@ -44,8 +44,12 @@ http://www.springframework.org/schema/mvc/spring-mvc-3.2.xsd">
 	    <bean id="viewResolver" class="org.springframework.web.servlet.view.freemarker.FreeMarkerViewResolver">
 	        <property name="viewClass" value="org.springframework.web.servlet.view.freemarker.FreeMarkerView"/>
 	        <property name="contentType" value="text/html; charset=utf-8"/>
-	         <property name="requestContextAttribute" value="request"></property> 
+	        <property name="requestContextAttribute" value="request"></property> 
 	        <property name="cache" value="true"/>
+	        <!-- 可为空,方便实现自已的依据扩展名来选择视图解释类的逻辑  -->
+	        <property name="prefix" value=""></property> 
+	        <property name="suffix" value=".html"></property>
+	        <property name="order" value="1"></property>
 	    </bean>
 	    
 		<!-- SpringMVC上传文件时，需要配置MultipartResolver处理器  -->
@@ -56,17 +60,18 @@ http://www.springframework.org/schema/mvc/spring-mvc-3.2.xsd">
 		</bean>
 		
      <mvc:interceptors>
-     <mvc:interceptor>
-         <mvc:mapping path="/**"/>
-         <mvc:exclude-mapping path="/**/fonts/*"/>
-         <mvc:exclude-mapping path="/**/*.css"/>
-         <mvc:exclude-mapping path="/**/*.js"/>
-         <mvc:exclude-mapping path="/**/*.png"/>
-         <mvc:exclude-mapping path="/**/*.gif"/>
-         <mvc:exclude-mapping path="/**/*.jpg"/>
-         <mvc:exclude-mapping path="/**/*.jpeg"/>
-         <bean class="com.lbcom.dadelion.interceptor.DadelionInterceptor"></bean>
-     </mvc:interceptor>
+     
+	     <mvc:interceptor>
+	         <mvc:mapping path="/**"/>
+	         <mvc:exclude-mapping path="/**/fonts/*"/>
+	         <mvc:exclude-mapping path="/**/*.css"/>
+	         <mvc:exclude-mapping path="/**/*.js"/>
+	         <mvc:exclude-mapping path="/**/*.png"/>
+	         <mvc:exclude-mapping path="/**/*.gif"/>
+	         <mvc:exclude-mapping path="/**/*.jpg"/>
+	         <mvc:exclude-mapping path="/**/*.jpeg"/>
+	         <bean class="com.lbcom.dadelion.interceptor.DadelionInterceptor"></bean>
+	     </mvc:interceptor>
      </mvc:interceptors>
 	 
 	 <mvc:default-servlet-handler />
