@@ -40,19 +40,19 @@ public class LoginController extends BaseResource<BZUser>{
 	 * @return
 	 * @throws IOException 
 	 */
-	@RequestMapping("/login.do")
+	@RequestMapping("/login")
 	public ModelAndView Logindex(HttpServletRequest request) throws IOException {
 		HashMap<String, Object> map = new HashMap<String, Object>();
 		String ip = IpGet.getIpAddress(request);
 		map.put("ip", ip);
-		return new ModelAndView("bigbin/login/login/login.html", map);
+		return new ModelAndView("bigbin/login/login/login", map);
 	}
 	/**
 	 * 404页面
 	 */
-	@RequestMapping("/404.do")
+	@RequestMapping("/404")
 	public ModelAndView Error(){
-		return new ModelAndView("bigbin/login/error/404.html");
+		return new ModelAndView("bigbin/login/error/404");
 	}
 	
 	/**
@@ -60,10 +60,10 @@ public class LoginController extends BaseResource<BZUser>{
 	 * @param request
 	 * @return
 	 */
-	@RequestMapping("/mainview.do")
+	@RequestMapping("/mainview")
 	public ModelAndView Mainview(HttpServletRequest request) {
 		HashMap<String, Object> map = new HashMap<String, Object>();
-		return new ModelAndView("bigbin/homeview/index.html", map);
+		return new ModelAndView("bigbin/homeview/index", map);
 	}
 	
 	/**
@@ -72,7 +72,7 @@ public class LoginController extends BaseResource<BZUser>{
 	 * @param response
 	 * @throws IOException
 	 */
-	@RequestMapping("/showUsername.do")
+	@RequestMapping("/showUsername")
 	public void showLogin(HttpServletRequest request,HttpServletResponse response) throws IOException{
 		JSONObject jsonObject = new JSONObject();
 		HttpSession session = request.getSession();
@@ -91,7 +91,7 @@ public class LoginController extends BaseResource<BZUser>{
 	 * @param response
 	 * @throws IOException
 	 */
-	@RequestMapping("/login_check.do")
+	@RequestMapping("/login_check")
 	public void Login(HttpServletRequest request,HttpServletResponse response) throws IOException {
 		JSONObject jsonObject = new JSONObject();
 		String username = request.getParameter("username");

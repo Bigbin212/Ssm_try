@@ -32,7 +32,7 @@ function Onchange(){
 		        }
 			
 				var options = {
-					url :  "uploadDevImg.do" + "?r=" + new Date(),
+					url :  "uploadDevImg" + "?r=" + new Date(),
 					dataType : 'json',
 					success : function(response) {
 						clearFileInput();
@@ -77,7 +77,7 @@ function initSytImgSrc(url){
 function ShowMessage(){
 	$.ajax({
 		type : "POST",// 以POST方式提交数据。
-		url : "getUserImage.do",
+		url : "getUserImage",
 		dataType : "json",
 		async : false,// 设置同步
 		success : function(data) {
@@ -105,7 +105,7 @@ function autoMainView(){
 	$("#successTip").dialog("open").dialog("option","buttons",{
 		"确定": function(){
 			$(this).dialog("close");
-			window.location = "./mainview.do";
+			window.location = "./mainview";
 		},
 		"取消": function(){
 			$(this).dialog("close");

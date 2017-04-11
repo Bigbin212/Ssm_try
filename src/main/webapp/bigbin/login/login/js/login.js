@@ -147,7 +147,7 @@ function login() {
 	}else{
 		$.ajax({
 			type : "post",// 以POST方式提交数据。
-			url : "login_check.do",
+			url : "login_check",
 			cache : false,
 			async : false,
 			data : form,
@@ -167,9 +167,9 @@ function login() {
 						delCookie("password");
 					}
 					if(result.meg == '0'){
-						window.location = "./yhgl.do";
+						window.location = "./yhgl";
 					}else{
-						window.location = "./mainview.do";
+						window.location = "./mainview";
 					}
 					
 				}
@@ -238,6 +238,6 @@ function resetDeviceForm(){
 	}
 	//重置验证信息
 	deviceFormValidate.resetForm();
-	window.location = "./register.do";
+	window.location = "./register";
 }
 

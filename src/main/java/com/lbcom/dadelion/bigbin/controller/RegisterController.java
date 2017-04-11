@@ -34,13 +34,13 @@ public class RegisterController {
 	@Resource
 	private BZUserService user_ser;
 	
-	@RequestMapping("/register.do")
+	@RequestMapping("/register")
 	public String Registerindex() {
-		return "bigbin/login/register/register.html";
+		return "bigbin/login/register/register";
 	}
 	
 	// 注册
-	@RequestMapping("/registerindex.do")
+	@RequestMapping("/registerindex")
 	public void Register( HttpServletRequest request,HttpServletResponse response) throws IOException {
 		JSONObject jsonObject = new JSONObject();
 	    jsonObject.put("success", "1");
@@ -59,7 +59,7 @@ public class RegisterController {
 	 * @param request
 	 * @param response
 	 */
-	@RequestMapping("/getuserxlh.do")
+	@RequestMapping("/getuserxlh")
 	public void getBh(HttpServletRequest request,HttpServletResponse response){
 		String xlh = UUIDGenerator.getUUID();
 		HashMap<String, Object> resultMap = new HashMap<String, Object>();
@@ -110,7 +110,7 @@ public class RegisterController {
 	 * @param response
 	 * @throws IOException 
 	 */
-	@RequestMapping("/registerCheck.do")
+	@RequestMapping("/registerCheck")
 	@ResponseBody
 	public void nameCheck(HttpServletRequest request,HttpServletResponse response) throws IOException{
 		String username = request.getParameter("username");
@@ -130,7 +130,7 @@ public class RegisterController {
 	 * @param response
 	 * @throws IOException
 	 */
-	@RequestMapping("/registerEmail.do")
+	@RequestMapping("/registerEmail")
 	@ResponseBody
 	public void emailCheck(HttpServletRequest request,HttpServletResponse response) throws IOException{
 		String email = request.getParameter("email");

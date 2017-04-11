@@ -154,13 +154,13 @@ function setImgLayOut(paramCss, imgUri, divWidth, divHeight ,callback){
 			}
 			
 			//缩略图的url样式
-			var sltUrl = webSiteRoot + basePath + "/JsPlugin/getThumbnails.do?width="
+			var sltUrl = webSiteRoot + basePath + "/JsPlugin/getThumbnails?width="
 							+imgcss_width+"&height="+imgcss_height+"&imgUrl="+tempUri+"&isIE="+(isIE()?1:0);
 			$.extend(paramCss.slCss, defaultCss, getBackgroundFilter(sltUrl));
 			
 			//如果原图URL IE background不能识别，则通过后来切换
 			if(/[)]+/.test(imgUri)){
-				var sltUrl1 = webSiteRoot + basePath + "/JsPlugin/getThumbnails.do?width="
+				var sltUrl1 = webSiteRoot + basePath + "/JsPlugin/getThumbnails?width="
 				+imgCss.imgWidth+"&height="+imgCss.imgHeight+"&imgUrl="+tempUri+"&isIE="+(isIE()?1:0);
 				$.extend(paramCss.ysCss, defaultCss, getBackgroundFilter(sltUrl1));
 			}else{
@@ -191,7 +191,7 @@ function getImgLayOut(uri,divWidth,divHeight){
 	};
 	$.ajax({
 		type:"post",
-		url:basePath + "/JsPlugin/getImgLayout.do",
+		url:basePath + "/JsPlugin/getImgLayout",
 		data:{
 			picUrl: uri,
 			divWidth: parseInt(divWidth),

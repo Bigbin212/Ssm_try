@@ -47,7 +47,7 @@ public class UserMessageController {
 	
 	@Resource BZUserService zser;
 	
-	@RequestMapping("/user-center.do")
+	@RequestMapping("/user-center")
 	public ModelAndView userCenter(HttpServletRequest request) throws IOException {
 		HashMap<String, Object> map = new HashMap<String, Object>();
 		HttpSession session = request.getSession();
@@ -55,10 +55,10 @@ public class UserMessageController {
 		String ip = IpGet.getIpAddress(request);
 		map.put("username", username);
 		map.put("ip", ip);
-		return new ModelAndView("bigbin/login/userMessage/userMessage.html", map);
+		return new ModelAndView("bigbin/login/userMessage/userMessage", map);
 	}
 	
-	@RequestMapping("/getUserImage.do")
+	@RequestMapping("/getUserImage")
 	public void getYdDeviceDetail(HttpServletRequest request, HttpServletResponse response){
 		JSONObject jsonObject = new JSONObject();
 		HttpSession session = request.getSession();
@@ -92,7 +92,7 @@ public class UserMessageController {
 	 * @param request
 	 * @param response
 	 */
-	@RequestMapping("/uploadDevImg.do")
+	@RequestMapping("/uploadDevImg")
 	public void uploadDevImg(HttpServletRequest request,HttpServletResponse response){
 		HttpSession session = request.getSession();
 		String xlh = (String) session.getAttribute("xlh");

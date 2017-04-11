@@ -33,9 +33,9 @@ public class YhglController {
 	@Resource
 	BZUserService userSer;
 	
-	@RequestMapping("/yhgl.do")
+	@RequestMapping("/yhgl")
 	public String Yhxxgl(){
-		return "bigbin/login/login/yhgl.html";
+		return "bigbin/login/login/yhgl";
 	}
 	
 	/**
@@ -43,7 +43,7 @@ public class YhglController {
 	 * @param request
 	 * @param response
 	 */
-	@RequestMapping("/queryDate.do")
+	@RequestMapping("/queryDate")
 	public void queryDate(HttpServletRequest request,HttpServletResponse response){
 		JSONObject jsonObject = new JSONObject();
 		try {
@@ -57,7 +57,7 @@ public class YhglController {
 	/**
 	 * 根据用户注册时的序列号查取详情信息
 	 */
-	@RequestMapping("/selectByxlh.do")
+	@RequestMapping("/selectByxlh")
 	public void selectByyhxlh(HttpServletRequest request,HttpServletResponse response){
 		String xlh = request.getParameter("xlh");
 		List<BZUser> list = userSer.selectByPrimaryKey(xlh);
@@ -65,7 +65,7 @@ public class YhglController {
 		JSONUtil.writeJSONArrayToResponse(response, jb);
 	}
 	
-	@RequestMapping("/yhxxUpdate.do")
+	@RequestMapping("/yhxxUpdate")
 	public void yhxxUpdate(HttpServletRequest request,HttpServletResponse response){
 		BZUser line = update(request);
 		String msg = "";

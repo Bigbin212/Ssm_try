@@ -26,7 +26,7 @@ ul, li, ol {
 .header-div{
 	height:40px;
 	line-height:40px;
-    border-bottom: 1px solid #01718A;
+    /* border-bottom: 1px solid #01718A; */
 }
 .user-message{
 	color: #fff;
@@ -201,6 +201,7 @@ ul, li, ol {
 	position:absolute;
 	z-index:-2;
 	background-size:cover;
+	border-top: 1px solid #01718A;
 }
 
 /* ifame的父dom */
@@ -222,6 +223,9 @@ ul, li, ol {
 	scrolling:yes;
 }
 
+.top-left{
+	float:left;
+}
 /* 上右侧区域  */
 .top-right{
 	float:left;

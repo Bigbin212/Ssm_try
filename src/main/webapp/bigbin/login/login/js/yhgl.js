@@ -95,7 +95,7 @@ function queryVehicleData(page_index,jq) {
 	
 	$.ajax({
 		type: "post",
-		url:'queryDate.do' + '?r=' + new Date().getTime(),
+		url:'queryDate' + '?r=' + new Date().getTime(),
 		dataType: "json",
 		data:params,
 		success: function(response){
@@ -129,7 +129,7 @@ function queryVehicleData(page_index,jq) {
 		$('#pageDiv').showLoading({'loadcontent':'正在查询总数','loadingtotal':true});
 		$.ajax({
 			type: "post",
-			url:'queryDate.do' + '?r=' + new Date().getTime(),
+			url:'queryDate' + '?r=' + new Date().getTime(),
 			dataType: "json",
 			data:params,
 			success: function(response){
@@ -386,7 +386,7 @@ function save(type){
 	
 	$.ajax({
 		type : "POST",// 以POST方式提交数据。
-		url : "./yhxxUpdate.do",
+		url : "./yhxxUpdate",
 		data : saveParam,
 		dataType : "json",
 		success : function(data) {

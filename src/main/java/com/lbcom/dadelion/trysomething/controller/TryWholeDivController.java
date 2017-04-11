@@ -40,13 +40,13 @@ public class TryWholeDivController extends BaseResource<BQjCd>{
 	 * @param request
 	 * @return
 	 */
-	@RequestMapping("/wholediv.do")
+	@RequestMapping("/wholediv")
 	public ModelAndView WholeDiv(HttpServletRequest request) {
 		HashMap<String, Object> map = new HashMap<String, Object>();
 		String ip = IpGet.getIpAddr(request);
 		map.put("ip", ip);
 		System.err.println("获取到的ip地址："+ip);
-		return new ModelAndView("bigbin/TryDiv/wholediv.html", map);
+		return new ModelAndView("bigbin/TryDiv/wholediv", map);
 	}
 
 	/**
@@ -55,7 +55,7 @@ public class TryWholeDivController extends BaseResource<BQjCd>{
 	 * @param response
 	 * @throws IOException 
 	 */
-	@RequestMapping("/initcd.do")
+	@RequestMapping("/initcd")
 	private void Initcd(HttpServletRequest request,HttpServletResponse response) throws IOException{
 		JSONObject jsonObject = new JSONObject();
 		jsonObject.put("success", true);

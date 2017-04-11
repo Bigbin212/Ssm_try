@@ -16,28 +16,28 @@ import org.springframework.web.servlet.ModelAndView;
 @Controller
 public class TestController {
 
-	@RequestMapping("/second.do")
+	@RequestMapping("/second")
 	public ModelAndView second(){
-		return new ModelAndView("bigbin/try_echarts/try_echarts.html");
+		return new ModelAndView("bigbin/try_echarts/try_echarts");
 	}
-	@RequestMapping("/vindicate.do")
+	@RequestMapping("/vindicate")
 	public ModelAndView Vindicate(){
-		return new ModelAndView("bigbin/Vindicate/vindicate.html");
+		return new ModelAndView("bigbin/Vindicate/vindicate");
 	}
-	@RequestMapping("/tab.do")
+	@RequestMapping("/tab")
 	public ModelAndView Tab(){
-		return new ModelAndView("bigbin/tab_first/tabchange.html");
+		return new ModelAndView("bigbin/tab_first/tabchange");
 	}
-	@RequestMapping("/carousel.do")
+	@RequestMapping("/carousel")
 	public ModelAndView Carousel(){
-		return new ModelAndView("bigbin/carousel/index.html");
+		return new ModelAndView("bigbin/carousel/index");
 	}
-	@RequestMapping("/superslide.do")
+	@RequestMapping("/superslide")
 	public ModelAndView superSlide(){
-		return new ModelAndView("bigbin/carousel/superSlide.html");
+		return new ModelAndView("bigbin/carousel/superSlide");
 	}
-	@RequestMapping("/html5video.do")
+	@RequestMapping("/html5video")
 	public String html5video(){
-		return"bigbin/vidbg/fullscreenDemo.html";
+		return"bigbin/vidbg/fullscreenDemo";
 	}
 }

@@ -159,30 +159,39 @@ function resize(){
 	var mainWith =  $('body').width()-2;
 	var mainHeight = $('body').height() - $('.header-div').outerHeight(true);
 	
-	$('.main').width(mainWith);
-	$('.main').height(mainHeight);
+	var $main = $('.main');
+	var $main_top = $('.main-top');
+	var $top_left = $('.top-left');
+	var $top_right= $('.top-right');
+	var $main_bottom = $('.main-bottom');
 	
-	$('.main-top').width(mainWith);
-	$('.main-top').height(mainHeight/2);
-	$('.iframe-div').width(mainWith/2);
-	$('.iframe-div').height($('.main-top').height());
+	$main.width(mainWith);
+	$main.height(mainHeight);
 	
-	$('.top-right').width($('.main-top').width() - $('.iframe-div').outerWidth());
-	$('.top-right').height($('.main-top').height());
+	$main_top.width(mainWith);
+	$main_top.height(mainHeight/2);
+	
+	$top_left.width(mainWith/2);
+	$top_left.height($main_top.height());
+	
+	$top_right.width(mainWith - $top_left.outerWidth(true));
+	$top_right.height($main_top.height());
+	
+	$main_bottom.width(mainWith);
+	$main_bottom.height(mainHeight - $main_top.outerHeight(true));
 }
 
 function initComplement(){
-	$('.iframe-div').css({
+/*	$('.top-left').css({
 		"display" : "block"
-	});
-	$('.iframe-style').attr("src",'./html5video.do');
-
+	});*/
+	$('#main-iframe').attr("src",'./html5video');
+	//$('#main-bottom-iframe').attr("src",'http://www.u17.com/');
 	//显示当前登录的用户名
 	showUserName();
-	
 	$.ajax({
 		type : "POST",// 以POST方式提交数据。
-		url : "getUserImage.do",
+		url : "getUserImage",
 		dataType : "json",
 		async : false,// 设置同步
 		success : function(data) {
@@ -215,7 +224,7 @@ function initComplement(){
  */
 function showUserName(){
 	$.ajax({
-		url : './showUsername.do'+ '?r=' + new Date().getTime(),
+		url : './showUsername'+ '?r=' + new Date().getTime(),
 		type : 'post',
 		dataType : 'json',		
 		cache : false,
@@ -223,7 +232,7 @@ function showUserName(){
 		data :'',
 		success : function(msg) {
 			if(msg.username == ""){
-				window.location = "./login.do";
+				window.location = "./login";
 			}else{
 				$('.user-name').html(msg.username);
 			}

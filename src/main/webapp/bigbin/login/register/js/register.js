@@ -133,7 +133,7 @@ function submit(){
 	}else{
 		$.ajax({
 			type : "POST",// 以POST方式提交数据。
-			url : "registerindex.do",
+			url : "registerindex",
 			dataType : "json",
 			data : param,
 			error:function(){
@@ -147,7 +147,7 @@ function submit(){
 					$("#successTip").dialog("open").dialog("option","buttons",{
 						"确定": function(){
 							$(this).dialog("close");
-							window.location = "./login.do";
+							window.location = "./login";
 						},
 						"取消": function(){
 							$(this).dialog("close");

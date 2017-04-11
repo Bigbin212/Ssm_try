@@ -28,7 +28,7 @@ import com.lbcom.dadelion.common.JSONUtil;
 @RequestMapping("/JsPlugin")
 public class JSPluginUtil {
 	Logger logger = LoggerFactory.getLogger(JSPluginUtil.class);
-	@RequestMapping("/getImgLayout.do")
+	@RequestMapping("/getImgLayout")
 	public void getImgLayout(HttpServletRequest req,
 			HttpServletResponse res,String picUrl,Integer divWidth,Integer divHeight){
 		if(picUrl.toUpperCase().indexOf("HTTP") < 0){
@@ -49,7 +49,7 @@ public class JSPluginUtil {
 	 * @throws MalformedURLException 
 	 * @description  获取图片的压缩图
 	 */
-	@RequestMapping("/getThumbnails.do")
+	@RequestMapping("/getThumbnails")
 	public void getThumbnails(HttpServletRequest req, Integer width, Integer height, String imgUrl, Integer isIE, HttpServletResponse response) throws MalformedURLException, IOException{
 		BufferedImage srcImage;
 
