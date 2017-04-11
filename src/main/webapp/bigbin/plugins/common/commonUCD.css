@@ -233,6 +233,7 @@ span.error{
 	background:url('images/icon/emoticon_sad.png') no-repeat;
 }
 
+/*!****************************tooltip样式********************************************/
 /*jquery validate的提示框的样式*/
 .tooltip {
 	position: absolute;

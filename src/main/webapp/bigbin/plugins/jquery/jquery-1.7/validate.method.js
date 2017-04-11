@@ -63,7 +63,7 @@ $.validator.addMethod("nameCheck", function(value, element,params) {
 	}
 	
 	$.ajax({
-	      url : "registerCheck.do",// 请求的URL  
+	      url : "registerCheck",// 请求的URL  
 	      type: "post",
 	      data : {  
 	           username : value
@@ -93,7 +93,7 @@ $.validator.addMethod("emailCheck", function(value, element,params) {
 		return true;
 	}
 	$.ajax({  
-	      url : "registerEmail.do",// 请求的URL  
+	      url : "registerEmail",// 请求的URL  
 	      type: "post",
 	      data : {  
 	           email : value
