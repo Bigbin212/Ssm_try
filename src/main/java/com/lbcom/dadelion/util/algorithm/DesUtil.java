@@ -10,6 +10,7 @@ import com.sun.crypto.provider.SunJCE;
 /**
  * DES加密和解密工具,可以对字符串进行加密和解密操作  
  */
+@SuppressWarnings("restriction")
 public class DesUtil {
   
   /** 字符串默认键值     */

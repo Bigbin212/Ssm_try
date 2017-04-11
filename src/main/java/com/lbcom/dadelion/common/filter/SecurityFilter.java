@@ -20,6 +20,7 @@ import org.apache.log4j.Logger;
  */
 public class SecurityFilter implements Filter {
 
+	@SuppressWarnings("unused")
 	private static Logger log = Logger.getLogger(SecurityFilter.class);
 
 	public SecurityFilter() {
@@ -28,6 +29,7 @@ public class SecurityFilter implements Filter {
 	public void destroy() {
 	}
 
+	@SuppressWarnings("unused")
 	public void doFilter(ServletRequest request, ServletResponse response,
 			FilterChain chain) throws IOException, ServletException {
 		HttpServletRequest req = (HttpServletRequest) request;
