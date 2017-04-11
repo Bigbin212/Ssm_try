@@ -84,13 +84,6 @@
 		    <artifactId>spring-expression</artifactId>
 		    <version>4.0.1.RELEASE</version>
 		</dependency>
-		
-		<!-- https://mvnrepository.com/artifact/org.freemarker/freemarker -->
-		<dependency>
-		    <groupId>org.freemarker</groupId>
-		    <artifactId>freemarker</artifactId>
-		    <version>2.3.20</version>
-		</dependency>
 
 		<!-- springframe end -->
 		<!-- 模板引擎 velocity start -->
@@ -288,6 +281,21 @@
 		    <version>4.0.0</version>
 		</dependency>
 		
+		<!-- 调用本地的jar包 
+			<groupId>com.freemarker</groupId>
+		    <artifactId>freemarker</artifactId>
+		    <version>2.3.20</version>  这三项可以随便填写
+			 
+			<scope>system</scope>  system表示本地的
+		    <systemPath>${project.basedir}/src/main/webapp/WEB-INF/lib/freemarker-2.3.20.jar</systemPath> 
+		-->
+		<dependency>
+		    <groupId>com.freemarker</groupId>
+		    <artifactId>freemarker</artifactId>
+		    <version>2.3.20</version>
+		    <scope>system</scope>  
+		    <systemPath>${project.basedir}/src/main/webapp/WEB-INF/lib/freemarker-2.3.20.jar</systemPath>  
+		</dependency>
 		<dependency>  
 		    <groupId>com.danga.MemCached</groupId>  
 		    <artifactId>MemCached</artifactId>  

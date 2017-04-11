@@ -10,8 +10,6 @@ import java.util.List;
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
-
 import net.sf.json.JSONObject;
 
 import org.apache.log4j.Logger;
@@ -50,8 +48,7 @@ public class UserMessageController {
 	@RequestMapping("/user-center")
 	public ModelAndView userCenter(HttpServletRequest request) throws IOException {
 		HashMap<String, Object> map = new HashMap<String, Object>();
-		HttpSession session = request.getSession();
-		String username = (String) session.getAttribute("username");
+		String username = (String) request.getSession(true).getAttribute("username");
 		String ip = IpGet.getIpAddress(request);
 		map.put("username", username);
 		map.put("ip", ip);
@@ -61,8 +58,8 @@ public class UserMessageController {
 	@RequestMapping("/getUserImage")
 	public void getYdDeviceDetail(HttpServletRequest request, HttpServletResponse response){
 		JSONObject jsonObject = new JSONObject();
-		HttpSession session = request.getSession();
-		String xlh = (String) session.getAttribute("xlh");
+		//HttpSession session = request.getSession();
+		String xlh = (String) request.getSession(true).getAttribute("xlh");
 		//判断编号是否为空
 		if(StringUtil.isNullOrEmpty(xlh)){
 			JSONUtil.writeJSONObjectToResponse(response, jsonObject);
@@ -94,8 +91,7 @@ public class UserMessageController {
 	 */
 	@RequestMapping("/uploadDevImg")
 	public void uploadDevImg(HttpServletRequest request,HttpServletResponse response){
-		HttpSession session = request.getSession();
-		String xlh = (String) session.getAttribute("xlh");
+		String xlh = (String) request.getSession(true).getAttribute("xlh");
 		String url = ConfigManager.commonCfg.getString(nginx_url);
 		
 		JSONObject jsonObject = new JSONObject();

@@ -7,7 +7,6 @@ import java.util.List;
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 import net.sf.json.JSONObject;
 
@@ -75,8 +74,7 @@ public class LoginController extends BaseResource<BZUser>{
 	@RequestMapping("/showUsername")
 	public void showLogin(HttpServletRequest request,HttpServletResponse response) throws IOException{
 		JSONObject jsonObject = new JSONObject();
-		HttpSession session = request.getSession();
-		String username = (String) session.getAttribute("username");
+		String username = (String) request.getSession(true).getAttribute("username");
 		if (StringUtil.isNotNullOrEmpty(username)) {
 			jsonObject.put("username", username);
 		}else {
@@ -96,8 +94,8 @@ public class LoginController extends BaseResource<BZUser>{
 		JSONObject jsonObject = new JSONObject();
 		String username = request.getParameter("username");
 		String password = request.getParameter("password");
-		HttpSession session = request.getSession();
-		session.setMaxInactiveInterval(30 * 60);
+		//HttpSession session = request.getSession();
+		request.getSession(true).setMaxInactiveInterval(30 * 60);
 		
 		HashMap<String, Object> map = new HashMap<String, Object>();
 		jsonObject.put("success", "1");
@@ -120,8 +118,8 @@ public class LoginController extends BaseResource<BZUser>{
 	   	     jsonObject.put("success", "0");
 		   	 jsonObject.put("msg", "用户名或密码错误，请重试！");
    	    }else {
-			session.setAttribute("username", username);
-			session.setAttribute("xlh", result.get(0).getXlh());
+   	    	request.getSession(true).setAttribute("username", username);
+   	    	request.getSession(true).setAttribute("xlh", result.get(0).getXlh());
 			BZUser zUser = result.get(0);
 			jsonObject.put("meg", zUser.getYhqx());
 		}
