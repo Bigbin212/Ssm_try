@@ -31,7 +31,7 @@ body{
 .ipt{
 	border: 1px solid #d3d3d3;
 	padding: 10px 10px;
-	width: 325px;
+	width: 328px;
 	border-radius: 4px;
 	padding-left: 35px;
 }
@@ -41,20 +41,20 @@ body{
 }
 /*用户名邮箱小图标*/
 .u_logo{
-	background: url("../images/man.png") no-repeat;
-	padding: 10px 10px;
+	/* background: url("../images/man.png") no-repeat; */
+	/* padding: 10px 10px; */
 	position: absolute;
-	top: 43px;
-	left: 45px;
+	top: 47px;
+	left: 49px;
 
 }
 /*密码小图标*/
 .p_logo{
-	background:url('../images/lock.png') no-repeat;
-	padding: 10px 10px;
+	/* background:url('../images/lock.png') no-repeat; */
+	/* padding: 10px 10px; */
 	position: absolute;
-	top: 12px;
-	left: 45px;
+	top: 17px;
+	left: 49px;
 }
 
 .disabled{
