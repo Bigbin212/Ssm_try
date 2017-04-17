@@ -76,11 +76,17 @@ function init(){
 	 });
 	
 	// 忘记密码
-	$("#forgetpass").attr("disabled","disabled");
+	$("#forgetpass").addClass("disabled");
 	// 注册
 	$("#register").on('click', function() {
 		resetDeviceForm();
 	});
+	
+	$(".disabled").bind('click mousedown', function(e) {
+		e.preventDefault();
+		return false;
+	});
+	
 	// 登录按钮点击事件
 	$("#login").on('click', function() {
 		login();
