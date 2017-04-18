@@ -62,7 +62,7 @@ function show(){
 	        y: 'center',
 	        feature : {
 	            mark : {show: false},
-	            dataView : {show: false, readOnly: false},
+	            dataView : {show: true, readOnly: false},
 	            restore : {show: false},
 	            saveAsImage : {show: true}
 	        }
@@ -74,7 +74,7 @@ function show(){
 	            type: 'map',
 	            mapType: 'china',
 	            roam: true,
-	            hoverable: false,
+	            hoverable: true, //鼠标放置显示区域
 	            data:[],
 	            heatmap: {
 	                minAlpha: 0.1,
