@@ -18,7 +18,8 @@
 			{
 			'speed'			:	'fast',	 // animations: fast, slow, or integer
 			'duplicates'	:	true,  // true or false
-			'autoclose'		:	2000  // integer or false
+			'autoclose'		:	1500,  // integer or false
+			'type':'common'
 			};
 		
 		// Passing in the object instead of specifying a note
@@ -27,7 +28,9 @@
 		
 		if(options)
 			{ $.extend(settings, options); }
-		
+		if(settings['position']){
+			position  = settings['position'];
+		}
 		// Variables
 		var display = true;
 		var duplicate = 'no';
@@ -57,8 +60,14 @@
 			{
 			// Building and inserting sticky note
 			$('.sticky-queue').prepend('<div class="sticky border-' + position + '" id="' + uniqID + '"></div>');
-			$('#' + uniqID).append('<img src="../znjt/plugins/jquery.sticky/close.png" class="sticky-close" rel="' + uniqID + '" title="Close" />');
-			$('#' + uniqID).append('<div class="sticky-note" rel="' + uniqID + '">' + note + '</div>');
+			$('#' + uniqID).append('<span  class="sticky-close" rel="' + uniqID + '" title="Close" ></span>');
+			
+			if(settings['type']=='common'){
+				$('#' + uniqID).append('<div class="sticky-opbg" ></div><div class="sticky-note" rel="' + uniqID + '">' + note + '</div>');
+			}else{
+				$('#' + uniqID).append('<div class="sticky-opbg-alert" ></div><div class="sticky-note" rel="' + uniqID + '">' + note + '</div>');
+			}
+			
 			
 			// Smoother animation
 			var height = $('#' + uniqID).height();
