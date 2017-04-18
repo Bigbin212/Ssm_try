@@ -129,7 +129,7 @@ form label+span{
 	color:red;
 }
 
-.btn{
+/* .btn{
 	display: inline-block;
 	height: 30px;
 	letter-spacing: 2px;
@@ -145,7 +145,7 @@ form label+span{
 .btn:hover{
 	background-color: #2B9FD7;
 	font-weight: bold;
-}
+} */
 
 input.error{
 /* 	background-color: #ffe7e7 !important; */
