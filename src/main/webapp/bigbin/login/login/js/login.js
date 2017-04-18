@@ -10,6 +10,16 @@ $(document).ready(function() {
 	//初始化执行一些函数
 	init();
 	
+	$('#fullpage').fullpage({
+		'verticalCentered' : false,
+		'css3' : true,
+		'anchors' : [ 'loginWindow', 'pic2', 'pic3', 'pic4' ],
+		'navigation' : true,
+		'loopBottom' : false,
+		'navigationPosition' : 'right',
+		'navigationTooltips' : [ 'loginWindow', 'pic2', 'pic3', 'pic4' ]
+	});
+	
 	if(getCookie("checked")){
 		$("#checkbox_check").addClass("checked");
 		$('#username').val(getCookie("username"));
