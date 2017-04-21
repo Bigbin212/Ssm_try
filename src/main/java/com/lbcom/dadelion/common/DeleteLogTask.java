@@ -18,13 +18,13 @@ public class DeleteLogTask {
 	
 	public void  delete(){
 		try {
-			_log.info("删除日志任务启动" + _baseFolderPath);
+			_log.error("删除日志任务启动" + _baseFolderPath);
 			if(StringUtil.isNotNullOrEmpty(_baseFolderPath)){				
 				deleteFolder(_baseFolderPath);
-		        _log.info("删除日志任务结束");
+		        _log.error("删除日志任务结束");
 			}
 		} catch (Exception e) {
-			_log.info("执行删除日志定时器出错");
+			_log.error("执行删除日志定时器出错");
 			e.printStackTrace();
 		}
 	}
@@ -47,7 +47,7 @@ public class DeleteLogTask {
 					  }
 				  }
 			  }catch (Exception e){ 
-				  _log.info("执行删除删除日志定时器出错");
+				  _log.error("执行删除删除日志定时器出错");
 			    e.printStackTrace(); 
 			  }
 		  }

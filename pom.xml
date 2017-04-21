@@ -270,6 +270,12 @@
 			<version>2.4</version>
 			<classifier>jdk15</classifier>
 		</dependency>
+		<!-- jedis 包 -->
+		<dependency>
+		    <groupId>redis.clients</groupId>
+		    <artifactId>jedis</artifactId>
+		    <version>2.8.1</version>
+		</dependency>
 		
 		<!--javax.servlet-api 包-->
 		<dependency>
