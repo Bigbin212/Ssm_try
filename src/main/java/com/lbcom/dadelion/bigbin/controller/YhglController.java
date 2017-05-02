@@ -2,6 +2,7 @@ package com.lbcom.dadelion.bigbin.controller;
 
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
@@ -10,8 +11,11 @@ import javax.servlet.http.HttpServletResponse;
 import net.sf.json.JSONArray;
 import net.sf.json.JSONObject;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.lbcom.dadelion.bigbin.model.BZUser;
 import com.lbcom.dadelion.bigbin.service.BZUserService;
@@ -30,12 +34,16 @@ import com.lbcom.dadelion.common.StringUtil;
 @Controller
 public class YhglController {
 	
+	private Logger log = LoggerFactory.getLogger(YhglController.class);
+	
 	@Resource
 	BZUserService userSer;
 	
 	@RequestMapping("/yhgl")
-	public String Yhxxgl(){
-		return "bigbin/login/login/yhgl";
+	public ModelAndView Yhxxgl(HttpServletRequest request) {
+		Map<String, Object> map = new HashMap<String, Object>();
+		map.put("username", request.getSession(true).getAttribute("username"));
+		return new ModelAndView("bigbin/login/login/yhgl","map",map);
 	}
 	
 	/**
@@ -73,6 +81,7 @@ public class YhglController {
 			userSer.updateByPrimaryKey(line);
 		} catch (Exception e) {
 			msg = e.getMessage();
+			log.error(msg);
 		}
 		HashMap<String, Object> resultMap = new HashMap<String, Object>();
 		resultMap.put("msg", msg);

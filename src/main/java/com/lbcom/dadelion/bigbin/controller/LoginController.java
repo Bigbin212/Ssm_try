@@ -10,7 +10,8 @@ import javax.servlet.http.HttpServletResponse;
 
 import net.sf.json.JSONObject;
 
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
@@ -31,7 +32,7 @@ import com.lbcom.dadelion.common.base.BaseResource;
 @Controller
 public class LoginController extends BaseResource<BZUser>{
 
-    private Logger log = Logger.getLogger(LoginController.class);
+    private Logger log = LoggerFactory.getLogger(LoginController.class);
 	
 	@Resource
 	BZUserService user_ser;
@@ -43,11 +44,8 @@ public class LoginController extends BaseResource<BZUser>{
 	 * @throws IOException 
 	 */
 	@RequestMapping("/login")
-	public ModelAndView Logindex(HttpServletRequest request) throws IOException {
-		HashMap<String, Object> map = new HashMap<String, Object>();
-		String ip = IpGet.getIpAddress(request);
-		map.put("ip", ip);
-		return new ModelAndView("bigbin/login/login/login", map);
+	public ModelAndView Logindex(HttpServletRequest request) {
+		return new ModelAndView("bigbin/login/login/login");
 	}
 	/**
 	 * 404页面
@@ -97,6 +95,7 @@ public class LoginController extends BaseResource<BZUser>{
 		JSONObject jsonObject = new JSONObject();
 		String username = request.getParameter("username");
 		String password = request.getParameter("password");
+		String ip = IpGet.getIpAddress(request);
 		//HttpSession session = request.getSession();
 		request.getSession(true).setMaxInactiveInterval(30 * 60);
 		
@@ -121,10 +120,10 @@ public class LoginController extends BaseResource<BZUser>{
 	   	     jsonObject.put("success", "0");
 		   	 jsonObject.put("msg", "用户名或密码错误，请重试！");
    	    }else {
+   	    	log.info(ip);
    	    	request.getSession(true).setAttribute("username", username);
    	    	request.getSession(true).setAttribute("xlh", result.get(0).getXlh());
 			BZUser zUser = result.get(0);
-			log.error(zUser.getUsername());
 			jsonObject.put("meg", zUser.getYhqx());
 		}
 	    response.getWriter().print(jsonObject);

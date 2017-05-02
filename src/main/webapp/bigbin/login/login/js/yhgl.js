@@ -6,6 +6,7 @@
 var oprJson = {way:null};
 var formValidate = undefined;		//表单的验证对象
 $(document).ready(function(){
+	
 	layout();
 	window.onresize=layout;
 	// 初始化组件
@@ -213,8 +214,8 @@ function getQueryParams(){
 	var params = {};
 	
 	var pageSize = $('#pageSizeSelect').val();
-	var username = $('#username').val();
-	var email =  $('#email').val();
+	var username = $('#usernameInput').val();
+	var email =  $('#emailInput').val();
 	
 	params.start = 0;
 	params.pageSize = pageSize;
