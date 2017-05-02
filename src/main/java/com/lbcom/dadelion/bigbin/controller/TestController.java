@@ -40,4 +40,12 @@ public class TestController {
 	public String html5video(){
 		return"bigbin/vidbg/fullscreenDemo";
 	}
+	@RequestMapping("/test")
+	public ModelAndView testAndView(){
+		return new ModelAndView("bigbin/test/testBootstrap/testDemon");
+	}
+	@RequestMapping("/echarts3")
+	public ModelAndView echarts3(){
+		return new ModelAndView("bigbin/try_echarts/echarts.3.0");
+	}
 }
