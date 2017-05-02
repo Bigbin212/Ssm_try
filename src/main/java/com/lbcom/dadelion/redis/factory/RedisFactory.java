@@ -14,15 +14,6 @@ import redis.clients.jedis.JedisCluster;
 import redis.clients.jedis.JedisPool;
 import redis.clients.jedis.JedisPoolConfig;
 
-/**
- * @CopyRight ©1995-2016: 苏州科达科技股份有限公司 
- * @Project： 
- * @Module：
- * @Description 
- * @Author  liubin
- * @Date 2017年4月21日 下午4:24:46 
- * @Version 1.0 
- */
 public class RedisFactory {
 
 	private static Object redisObject;

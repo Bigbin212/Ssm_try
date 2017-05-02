@@ -35,7 +35,6 @@ public class DeleteLogTask {
 		  if(delfolder != null ){
 			  File[] oldFile = delfolder.listFiles();
 			  try{ 
-				  
 				  if(oldFile != null ){
 					  for(int i = 0; i < oldFile.length; i++){
 						  if(oldFile[i] != null ){

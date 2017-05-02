@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import net.sf.json.JSONObject;
 
+import org.apache.log4j.Logger;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
@@ -30,6 +31,8 @@ import com.lbcom.dadelion.common.base.BaseResource;
 @Controller
 public class LoginController extends BaseResource<BZUser>{
 
+    private Logger log = Logger.getLogger(LoginController.class);
+	
 	@Resource
 	BZUserService user_ser;
 
@@ -121,6 +124,7 @@ public class LoginController extends BaseResource<BZUser>{
    	    	request.getSession(true).setAttribute("username", username);
    	    	request.getSession(true).setAttribute("xlh", result.get(0).getXlh());
 			BZUser zUser = result.get(0);
+			log.error(zUser.getUsername());
 			jsonObject.put("meg", zUser.getYhqx());
 		}
 	    response.getWriter().print(jsonObject);

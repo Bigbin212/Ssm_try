@@ -73,8 +73,9 @@ function show(){
 	            name: '',
 	            type: 'map',
 	            mapType: 'china',
-	            roam: true,
+	            roam: false,
 	            hoverable: true, //鼠标放置显示区域
+	           // selectedMode : 'multiple',
 	            data:[],
 	            heatmap: {
 	                minAlpha: 0.1,
