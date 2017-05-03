@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>testBootstrap</title>
+<link rel="stylesheet" href="bigbin/plugins/bootstrap/dist/css/bootstrap.min.css">
+<link rel="stylesheet" href="bigbin/plugins/bootstrap/dist/css/docs.min.css">
+<link rel="stylesheet" href="bigbin/plugins/fullPage/jquery.fullpage.min.css">
+<link rel="stylesheet" href="bigbin/test/testBootstrap/css/testDemon.css">
+
+<script type="text/javascript" src="bigbin/plugins/jquery/dist/jquery.min.js"></script>
+<script type="text/javascript" src="bigbin/plugins/bootstrap/dist/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="bigbin/plugins/fullPage/jquery.fullpage.min.js"></script>
+<script type="text/javascript" src="bigbin/test/testBootstrap/testDemon.js"></script>
+</head>
+	<body>
+		<div id="fullpage" class="fullpage">
+            <div class="section">
+				<div class="container box-content">
+					<div class="row">
+						<div class="col-md-offset-1 col-md-3 col-xs-12" style="min-width:400px;">
+							<div>
+            					<ul class="nav nav-pills mystyle-ul" id="myTabs"> <!-- class="nav nav-tabs" -->
+            						<li class="active">
+            							<a href="#tab1" data-toggle="tab">tab1</a>
+            						</li>
+            						<li>
+            							<a href="#tab2" data-toggle="tab">tab2</a>
+            						</li>
+            						<li role="presentation" >
+            							<a href="#tab3" data-toggle="tab">tab3</a>
+            						</li>
+            						<li class="disabled tab4">
+            							<a href="#tab4" data-toggle="tab">tab4</a>
+            						</li>
+            					</ul>
+								<div class="tab-content">
+									<div role="tabpanel" class="tab-pane active" id="tab1">
+        								<form class="form-horizontal">
+											<div class="input-group input-group-xs col-sm-12" style="margin:10px 0px;">
+                                                <span class="input-group-addon" style="background-color:#fff;"><span class="glyphicon glyphicon-user"></span></span>
+												<input type="text" class="form-control" id="account" name="account" placeholder="帐号">
+											</div>
+											<div class="input-group input-group-xs col-sm-12" style="margin:10px 0px;">
+                                                <span class="input-group-addon" style="background-color:#fff;"><span class="glyphicon glyphicon-envelope"></span></span>
+                                                <input type="email" class="form-control" id="password" name="email" placeholder="邮箱">
+											</div>
+											<div class="input-group input-group-xs col-sm-12" style="margin:10px 0px;">
+                                                <span class="input-group-addon" style="background-color:#fff;"><span class="glyphicon glyphicon-eye-close"></span></span>
+                                                <input type="password" class="form-control" id="password" name="password" placeholder="输入密码">
+											</div>
+											<div class="input-group input-group-xs col-sm-12" style="margin:10px 0px;">
+											    <input type="file" id="exampleInputFile">
+											</div>
+											<div class="input-group input-group-xs col-sm-12" style="margin:10px 0px;">
+												<span class="input-group-btn">
+												        <button class="btn btn-default" type="button">Go!</button>
+												 </span>
+                                                <input type="text" class="form-control" id="" name="text" placeholder="Go!">
+											</div>
+											<div class="input-group input-group-xs col-sm-12" style="margin:10px 0px;">
+                                                <input type="text" class="form-control" id="" name="text" placeholder="Go!">
+                                                <span class="input-group-btn">
+												        <button class="btn btn-default" type="button">Go!</button>
+												 </span>
+											</div>
+											<div class="input-group input-group-xs col-sm-12" style="margin:10px 0px;">
+											    <label><input type="checkbox"> Check me out</label>
+											</div>
+											<div class="row">
+                                                <div class="col-xs-6 text-right">
+                                                    <a href="#">忘记密码?</a>
+                                                </div>
+                                            </div>
+                                    	</form>
+                                    </div>
+									<div role="tabpanel" class="tab-pane" id="tab2">
+										<div class="tab2div" style="margin:10px 0px;">
+											<img src="bigbin/login/login/images/1-2.jpg" alt="..." class="img-rounded img1">
+											<img src="bigbin/login/login/images/1-7.jpg" alt="..." class="img-circle img2">
+											<img src="bigbin/login/login/images/1-8.jpg" alt="..." class="img-thumbnail img3">
+										</div>
+                                    </div>
+                                    <div role="tabpanel" class="tab-pane container" id="tab3">
+										<div class="row show-grid">
+										  <div class="col-md-1">.col-md-1</div>
+										  <div class="col-md-1">.col-md-1</div>
+										  <div class="col-md-1">.col-md-1</div>
+										  <div class="col-md-1">.col-md-1</div>
+										  <div class="col-md-1">.col-md-1</div>
+										  <div class="col-md-1">.col-md-1</div>
+										  <div class="col-md-1">.col-md-1</div>
+										  <div class="col-md-1">.col-md-1</div>
+										  <div class="col-md-1">.col-md-1</div>
+										  <div class="col-md-1">.col-md-1</div>
+										  <div class="col-md-1">.col-md-1</div>
+										  <div class="col-md-1">.col-md-1</div>
+										</div>
+										<div class="row show-grid">
+										  <div class="col-md-8">.col-md-8</div>
+										  <div class="col-md-4">.col-md-4</div>
+										</div>
+										<div class="row show-grid">
+										  <div class="col-md-4">.col-md-4</div>
+										  <div class="col-md-4">.col-md-4</div>
+										  <div class="col-md-4">.col-md-4</div>
+										</div>
+										<div class="row show-grid">
+										  <div class="col-md-6">.col-md-6</div>
+										  <div class="col-md-6">.col-md-6</div>
+										</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+				
+			</div>
+            
+        </div>
+	</body>
+</html>

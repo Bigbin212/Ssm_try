@@ -1,0 +1,5 @@
+@CHARSET "UTF-8";
+a:focus{outline:none;} /* 去除a标签点击事件出现虚线框  */
+.mystyle-ul li{border: 1px solid #337ab7;border-radius:4px;}
+.mystyle-ul li.disabled{border: 1px solid #e4e6eb;border-radius:4px;}
+.tab2div img{width:140px;height:140px;}
