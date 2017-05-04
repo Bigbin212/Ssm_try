@@ -53,6 +53,17 @@
     <servlet-name>springMvc</servlet-name>
     <url-pattern>/*</url-pattern>
   </servlet-mapping>
+  
+  <!-- druid 查看数据库及部分装态 -->
+  <servlet>
+      <servlet-name>DruidStatView</servlet-name>
+      <servlet-class>com.alibaba.druid.support.http.StatViewServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+      <servlet-name>DruidStatView</servlet-name>
+      <url-pattern>/druid/*</url-pattern>
+  </servlet-mapping>
+  
   <session-config>
     <session-timeout>60</session-timeout>
   </session-config>

@@ -29,7 +29,7 @@ $(function() {
 	 */
 	$(".disabled").tooltip({
 		title : "这个是不能点击的哟！",
-		placement : "right"
+		placement : "bottom"
 	});
 	
 	$(".img1").tooltip({
