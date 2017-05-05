@@ -302,7 +302,8 @@
 	    <if test="distinct" >
 	      distinct
 	    </if>
- 		XLH, USERNAME, PASSWORD,IP,EMAIL,PHONE,ZCSJ,YHQX
+	    <include refid="Base_Column_List" />
+ 		<!-- XLH, USERNAME, PASSWORD,IP,EMAIL,PHONE,ZCSJ,YHQX -->
 	    from b_z_user where 1 = 1 
 	    <if test="username !=null and username !=''">
 	    	and username = #{username,jdbcType=VARCHAR} 

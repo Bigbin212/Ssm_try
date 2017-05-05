@@ -7,7 +7,9 @@
     http://www.springframework.org/schema/context/spring-context.xsd"> 
 	
 	<!-- 定时任务Bean 定时删除日志-->
-	<bean id="deleteImageTask" class="com.lbcom.dadelion.common.DeleteLogTask" />
+	<bean id="deleteImageTask" class="com.lbcom.dadelion.common.task.DeleteLogTask" />
+	<!-- 定时任务Bean -->
+	<bean id="initCacheTask" class="com.lbcom.dadelion.common.task.InitCacheTask" />
 	
     <!-- 定义调用对象和调用对象的方法 -->
 	<bean id="deleteImageTaskDetail"
@@ -34,6 +36,24 @@
 	<!--<value>0 20 12 ? * *</value> -->
 	</property> 
 	</bean> 
+	
+	
+	<!-- 定义调用对象和调用对象的方法 -->
+	<bean id="initCacheTaskDetail"
+		class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+		<!-- 调用的类 -->
+		<property name="targetObject" ref="initCacheTask" />
+		<!-- 调用类中的方法 -->
+		<property name="targetMethod" value="initCache" />
+		<!-- 是否允许任务并发执行。当值为false时，表示必须等到前一个线程处理完毕后才再启一个新的线程 -->
+		<property name="concurrent" value="false" />
+	</bean>
+	
+	<bean id="initCacheTaskTrigger" class="org.springframework.scheduling.quartz.SimpleTriggerFactoryBean">
+		<property name="jobDetail" ref="initCacheTaskDetail" />
+		<property name="startDelay" value="0" /><!-- 调度工厂实例化后，经过0秒开始执行调度 -->
+		<property name="repeatInterval" value="300000" /><!-- 10分钟刷新一次 -->
+	</bean>
 
 	<!-- 总管理类：如果lazy-init='false'，那么容器启动后就会执行调度程序 -->
 	<!-- 如果lazy-init='true'，则需要实例化该bean才能执行调度程序 -->
@@ -42,6 +62,7 @@
 		<property name="triggers">
 			<list>
 				<ref bean="deleteImageTaskTrigger" />
+				<ref bean="initCacheTaskTrigger" />
 			</list>
 		</property>
 		<!--<property name="autoStartup" value="true"/> -->

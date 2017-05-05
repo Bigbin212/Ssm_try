@@ -1,9 +1,11 @@
-package com.lbcom.dadelion.common;
+package com.lbcom.dadelion.common.task;
 
 import java.io.File;
 
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Value;
+
+import com.lbcom.dadelion.common.StringUtil;
 
 /**
  * 删除日志任务

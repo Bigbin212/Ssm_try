@@ -181,6 +181,7 @@ li {
     white-space: nowrap;
     width: 160px;
 }
+
 .divSelected {
     background: #1e8fc6 none repeat scroll 0 0;
 }
@@ -196,6 +197,10 @@ li {
 	 width: 45px;
 	 line-height:45px;
 	 float:left;
+	 background-position:none repeat scroll center center;
+     background-size: cover;
+     border-radius: 50%;
+     display: inline-block;
 }
 
 .time-div{

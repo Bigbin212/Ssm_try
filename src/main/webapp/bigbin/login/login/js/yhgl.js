@@ -71,8 +71,8 @@ function initElementEvent(){
 		$('.detail-span').removeClass('select-detail');
 		$(this).find('.detail-span').addClass('select-detail');
 		
-		$('.flagDiv').removeClass("icon-success");
-		$(this).find('.flagDiv').addClass("icon-success");
+		//$('.flagDiv').removeClass("icon-success");
+		//$(this).find('.flagDiv').addClass("icon-success");
 		$('.chooseDiv').removeClass("divSelected");
 		$(this).find('.chooseDiv').addClass("divSelected");
 		
@@ -238,7 +238,11 @@ function insertAndshowData(data){
 		
 		var topDiv = $("<div class='select-shadow'>");
 		
-		var flagDiv = $("<span class='flagDiv'></span>"); //显示被选中的li
+		if(!this.photo){
+			this.photo = "bigbin/carousel/images/16.png";
+		}
+		
+		var flagDiv = $("<span class='flagDiv' style='background-image:url("+this.photo+")' ></span>"); //显示被选中的li --->最后改成显示头像了 
 		topDiv.append(flagDiv);
 		
 		var userName = $("<span class='device-name-span' title='用户名:"+this.username+"'>");
