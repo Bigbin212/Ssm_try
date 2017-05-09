@@ -16,7 +16,7 @@ body {
 }
 
 .pic-404{
-	float:left;
+	margin:0 auto;
 	width:650px;
 	height:770px;
 	padding:0 auto 0 auto;
