@@ -75,9 +75,15 @@ function initElementEvent(){
 		//$(this).find('.flagDiv').addClass("icon-success");
 		$('.chooseDiv').removeClass("divSelected");
 		$(this).find('.chooseDiv').addClass("divSelected");
-		
-		
 	});
+	
+	/**
+	 * 头像双击事件
+	 */
+	$("#main-content").delegate(".flagDiv", "dblclick", function(event, param){
+		window.open($(this).data("url"), "_blank");
+		event.stopPropagation();
+	})
 }
 
 
@@ -244,7 +250,7 @@ function insertAndshowData(data){
 		
 		var flagDiv = $("<span class='flagDiv' style='background-image:url("+this.photo+")' ></span>"); //显示被选中的li --->最后改成显示头像了 
 		topDiv.append(flagDiv);
-		
+		flagDiv.data("url",this.photo);
 		var userName = $("<span class='device-name-span' title='用户名:"+this.username+"'>");
 		userName.text(this.username);
 		topDiv.append(userName);
