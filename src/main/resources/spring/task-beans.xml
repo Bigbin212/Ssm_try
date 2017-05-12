@@ -7,24 +7,24 @@
     http://www.springframework.org/schema/context/spring-context.xsd"> 
 	
 	<!-- 定时任务Bean 定时删除日志-->
-	<bean id="deleteImageTask" class="com.lbcom.dadelion.common.task.DeleteLogTask" />
+	<bean id="deleteLogTask" class="com.lbcom.dadelion.common.task.DeleteLogTask" />
 	<!-- 定时任务Bean -->
 	<bean id="initCacheTask" class="com.lbcom.dadelion.common.task.InitCacheTask" />
 	
     <!-- 定义调用对象和调用对象的方法 -->
-	<bean id="deleteImageTaskDetail"
+	<bean id="deleteLogTaskDetail"
 		class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
 		<!-- 调用的类 -->
-		<property name="targetObject" ref="deleteImageTask" />
+		<property name="targetObject" ref="deleteLogTask" />
 		<!-- 调用类中的方法 -->
 		<property name="targetMethod" value="delete" />
 		<!-- 是否允许任务并发执行。当值为false时，表示必须等到前一个线程处理完毕后才再启一个新的线程 -->
 		<property name="concurrent" value="true" />
 	</bean>
 	
-	<bean id="deleteImageTaskTrigger" class="org.springframework.scheduling.quartz.CronTriggerFactoryBean"> 
+	<bean id="deleteLogTaskTrigger" class="org.springframework.scheduling.quartz.CronTriggerFactoryBean"> 
 	<property name="jobDetail"> 
-	<ref bean="deleteImageTaskDetail" /> 
+	<ref bean="deleteLogTaskDetail" /> 
 	</property> 
 	<!-- cron表达式 --> 
 	<property name="cronExpression"> 
@@ -61,7 +61,8 @@
 		class="org.springframework.scheduling.quartz.SchedulerFactoryBean">
 		<property name="triggers">
 			<list>
-				<ref bean="deleteImageTaskTrigger" />
+				<!-- 删除日志 test -->
+				<ref bean="deleteLogTaskTrigger" />
 				<ref bean="initCacheTaskTrigger" />
 			</list>
 		</property>
