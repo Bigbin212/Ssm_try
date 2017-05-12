@@ -16,7 +16,7 @@ public class InitCacheTask {
 
 	
 	public void  initCache(){
-		log.debug("初始化缓存>>>>>>");
+		log.error("初始化缓存>>>>>>");
 		
 	}
 }

@@ -26,7 +26,6 @@ xsi:schemaLocation="
 	
 	<!-- 获取spring MVC上下文 -->
 	<bean id="appcontext"  class="com.lbcom.dadelion.common.AppContext" />
-	<import resource="classpath:spring/task-beans.xml"/>
 	<import resource="classpath:spring/spring-mybatis.xml"/>
-	
+	<import resource="classpath:spring/task-beans.xml"/>
 </beans>
