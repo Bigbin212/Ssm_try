@@ -83,26 +83,18 @@ ul, li, ol {
     width: 12px;
 }
 .arrow-up-grey{
-	width: 12px;
-	height: 12px;
 	cursor: pointer;
 	background:url('../../homeview/css/images/arrow-up-grey.png') no-repeat center; 
 }
 .arrow-down-grey{
-    width: 12px;
-	height: 12px;
 	cursor: pointer;
 	background:url('../../homeview/css/images/arrow-down-grey.png') no-repeat center; 
 }
 .arrow-up-white{
-	width: 12px;
-	height: 12px;
 	cursor: pointer;
 	background:url('../../homeview/css/images/arrow-up-white.png') no-repeat center; 
 }
 .arrow-down-white{
-    width: 12px;
-	height: 12px;
 	cursor: pointer;
 	background:url('../../homeview/css/images/arrow-down-white.png') no-repeat center; 
 }

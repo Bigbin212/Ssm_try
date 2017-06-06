@@ -113,7 +113,7 @@ xsi:schemaLocation="
 			<tx:method name="*" propagation="SUPPORTS" />
 		</tx:attributes>
 	</tx:advice>
-	<aop:config> <!-- 事务控制 -->
+	<aop:config> <!-- 事务控制 把事务控制在Service层 -->
 		<!-- <aop:pointcut id="transactionPointcut" expression="execution(* com.lbcom.**.service..*Impl.*(..))" /> -->
 		<aop:pointcut id="transactionPointcut" expression="execution(* com.lbcom.**.service..*.*(..))" />
 		<aop:advisor pointcut-ref="transactionPointcut" advice-ref="transactionAdvice" />

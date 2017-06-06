@@ -179,6 +179,7 @@ function resize(){
 	
 	$main_bottom.width(mainWith);
 	$main_bottom.height(mainHeight - $main_top.outerHeight(true));
+	
 }
 
 function initComplement(){

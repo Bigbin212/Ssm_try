@@ -11,12 +11,14 @@ $(document).ready(function() {
 	init();
 	
 	$('#fullpage').fullpage({
-		'verticalCentered' : false,
+		'verticalCentered' : false, //内容是否垂直居中
 		'css3' : true,
 		'anchors' : [ 'loginWindow', 'pic2', 'pic3', 'pic4' ],
-		'navigation' : true,
+		'navigation' : true, //是否显示项目导航
+		'navigationPosition' : 'right', //项目导航的位置
+		'loopTop': false,
 		'loopBottom' : false,
-		'navigationPosition' : 'right',
+		'keyboardScrolling' : false, //是否使用键盘方向键导航
 		'navigationTooltips' : [ 'loginWindow', 'pic2', 'pic3', 'pic4' ]
 	});
 	

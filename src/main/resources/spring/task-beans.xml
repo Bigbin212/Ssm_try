@@ -39,8 +39,7 @@
 	
 	
 	<!-- 定义调用对象和调用对象的方法 -->
-	<bean id="initCacheTaskDetail"
-		class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+	<bean id="initCacheTaskDetail" class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
 		<!-- 调用的类 -->
 		<property name="targetObject" ref="initCacheTask" />
 		<!-- 调用类中的方法 -->
@@ -55,10 +54,10 @@
 		<property name="repeatInterval" value="300000" /><!-- 10分钟刷新一次 -->
 	</bean>
 
+
 	<!-- 总管理类：如果lazy-init='false'，那么容器启动后就会执行调度程序 -->
 	<!-- 如果lazy-init='true'，则需要实例化该bean才能执行调度程序 -->
-	<bean name="jobSchFactory" 
-		class="org.springframework.scheduling.quartz.SchedulerFactoryBean">
+	<bean name="jobSchFactory" class="org.springframework.scheduling.quartz.SchedulerFactoryBean">
 		<property name="triggers">
 			<list>
 				<!-- 删除日志 test -->
