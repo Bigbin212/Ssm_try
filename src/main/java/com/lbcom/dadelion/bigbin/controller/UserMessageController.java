@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.OutputStream;
 import java.util.HashMap;
 import java.util.List;
 
@@ -122,16 +123,18 @@ public class UserMessageController {
 			//获取ip和端口
 			//String ipAddr = getIpAndPort(request.getRequestURL().toString());
 			String name = getImgDir(save_images)+xlh+".jpg";			
-			FileOutputStream fileOutputStream = new FileOutputStream(name);
+			//FileOutputStream out = new FileOutputStream(name);
+			OutputStream out = new FileOutputStream(name);
 			byte[] buffer = new byte[1024];
-			while (in.read(buffer) !=-1) {
-				fileOutputStream.write(buffer);
-			}
-			//关闭流
-			in.close();
-			fileOutputStream.flush();
-			fileOutputStream.close();	
+			int len = 0;
+	        while( (len = in.read(buffer)) > 0){
+	          out.write(buffer, 0, len);
+	        }
+	        //关闭流
+	        out.close();
+	        in.close();
 			
+	        //更新新用户图片字段
 			BZUser line = new BZUser();
 			line.setXlh(xlh);
 			line.setPhoto(url+xlh+".jpg");
@@ -139,8 +142,9 @@ public class UserMessageController {
 			
 			jsonObject.put("url", url+xlh+".jpg");
 			//jsonObject.put("url", ipAddr+"/userMessage/images/"+xlh+".jpg");
-		}catch(Exception e){
-			jsonObject.put("msg", "头像保存失败!");
+		}catch(IOException e){
+			jsonObject.put("msg", "头像保存失败!"+e.getMessage());
+			e.printStackTrace();
 		}
 		JSONUtil.writeJSONObjectToResponse(response, jsonObject);
 	}

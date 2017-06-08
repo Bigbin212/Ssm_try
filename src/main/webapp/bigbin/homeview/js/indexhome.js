@@ -197,8 +197,8 @@ function initComplement(){
 		async : false,// 设置同步
 		success : function(data) {
 			if(data.url){
-				var userImage = [];
-				userImage.push('<i class="user-photo" style="background-image:url('+data.url+');"></i>');
+				var userImage = $('<i class="user-photo" style="background-image:url('+data.url+');"></i>');
+				userImage.data("url",data.url);
 				$(".logo-span").append(userImage);
 			}
 		},
@@ -217,6 +217,15 @@ function initComplement(){
 				$(".user-message ").removeClass("mouseon");
 			}
 		)
+	
+	/**
+	 * 头像双击事件
+	 */
+	$(".user-photo").on( "dblclick", function(event, param){
+		window.open($(this).data("url"), "_blank");
+		event.stopPropagation();
+	})
+		
 }
 
 /**
