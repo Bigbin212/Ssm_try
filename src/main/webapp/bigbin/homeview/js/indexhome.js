@@ -186,13 +186,13 @@ function initComplement(){
 /*	$('.top-left').css({
 		"display" : "block"
 	});*/
-	$('#main-iframe').attr("src",'./html5video');
+	$('#main-iframe').attr("src",basePath+'/html5video');
 	//$('#main-bottom-iframe').attr("src",'http://www.u17.com/');
 	//显示当前登录的用户名
 	showUserName();
 	$.ajax({
 		type : "POST",// 以POST方式提交数据。
-		url : "getUserImage",
+		url : basePath+"/getUserImage",
 		dataType : "json",
 		async : false,// 设置同步
 		success : function(data) {
@@ -234,7 +234,7 @@ function initComplement(){
  */
 function showUserName(){
 	$.ajax({
-		url : './showUsername'+ '?r=' + new Date().getTime(),
+		url : basePath+'/showUsername'+ '?r=' + new Date().getTime(),
 		type : 'post',
 		dataType : 'json',		
 		cache : false,
@@ -242,7 +242,7 @@ function showUserName(){
 		data :'',
 		success : function(msg) {
 			if(msg.username == ""){
-				window.location = "./login";
+				window.location = basePath+"/login";
 			}else{
 				$('.user-name').html(msg.username);
 			}

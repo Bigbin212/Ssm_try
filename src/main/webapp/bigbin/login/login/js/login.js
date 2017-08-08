@@ -187,7 +187,8 @@ function login() {
 					if(result.meg == '0'){
 						window.location = "./yhgl";
 					}else{
-						window.location = "./mainview";
+						window.open(basePath+"/"+result.id+"/mainview","_self");
+						//window.location = "./mainview";
 					}
 					
 				}
@@ -256,6 +257,6 @@ function resetDeviceForm(){
 	}
 	//重置验证信息
 	deviceFormValidate.resetForm();
-	window.location = "./register";
+	window.location = basePath+"/register";
 }
 

@@ -1,7 +1,5 @@
 
 $(function(){
-	
-	
 /*	$("#syt").uploadify({
         'removeCompleted' : false,
         'swf'             : '/uploadify/uploadify.swf',
@@ -105,7 +103,7 @@ function autoMainView(){
 	$("#successTip").dialog("open").dialog("option","buttons",{
 		"确定": function(){
 			$(this).dialog("close");
-			window.location = "./mainview";
+			window.location = basePath +"/"+ xlh +"/mainview";
 		},
 		"取消": function(){
 			$(this).dialog("close");

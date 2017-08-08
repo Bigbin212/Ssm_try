@@ -48,18 +48,19 @@ public class UserMessageController {
 	@Resource BZUserService zser;
 	
 	@RequestMapping("/user-center")
-	public ModelAndView userCenter(HttpServletRequest request,String username2) throws IOException {
+	public ModelAndView userCenter(HttpServletRequest request) throws IOException {
 		HashMap<String, Object> map = new HashMap<String, Object>();
-		String username = (String) request.getSession(true).getAttribute("username");
+		Object username = request.getSession(true).getAttribute("username");
+		Object xlh = request.getSession(true).getAttribute("xlh");
 		String ip = IpGet.getIpAddress(request);
 		map.put("username", username);
+		map.put("xlh", xlh);
 		map.put("ip", ip);
 		return new ModelAndView("bigbin/login/userMessage/userMessage","map",map);
-		
 	}
 	
 	@RequestMapping("/getUserImage")
-	public void getYdDeviceDetail(HttpServletRequest request, HttpServletResponse response){
+	public void getUserImage(HttpServletRequest request, HttpServletResponse response){
 		JSONObject jsonObject = new JSONObject();
 		//HttpSession session = request.getSession();
 		String xlh = (String) request.getSession(true).getAttribute("xlh");

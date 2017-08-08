@@ -1,15 +1,13 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <project default="generwar" basedir=".">
-	<description>
- 	kdkk complie
-	</description>
+	<description>Ssm_try</description>
 	<property file="build.properties"/>
 	<property name="file.war" value="Ssm_try.war" />
 	
 	<property name="dir.jdk" value="${JDK.home}" />
 	<property name="build" value="${basedir}/build" />
 	<property name="build.class" value="${build}/classes" />
-	<property name="warName" value="./build/ImageProxy.war" />
+	<property name="warName" value="./build/Ssm_try.war" />
 	<property name="src" value="${basedir}/src/main/java" />
 	<property name="all_src" value="${basedir}/src" />
 	<property name="dir.lib" value="${basedir}/src/main/webapp/WEB-INF" />
@@ -19,6 +17,11 @@
 	<property name="webRoot" value="${basedir}/src/main/webapp" />
 	<property name="webxml" value="${webRoot}/src/main/webapp/WEB-INF/web.xml" />
 	<property name="lib" value="${webRoot}/src/main/webapp/WEB-INF/lib" />
+	
+	<!--编译时间-->
+	<tstamp>
+		<format property="complete_date" pattern="yyyy-MM-dd HH:mm:ss" />
+	</tstamp>
 	
 	<path id="project.class.path">
 		<!--<pathelement location="${build}/classes" />-->
@@ -43,22 +46,23 @@
 	<!--编译java源文件-->
 	<target name="compile" description="编译文件" depends="init">
 		<echo message="编译文件" />
-		<javac srcdir="${all_src}" destdir="${build.class}" encoding="UTF-8" debug="true" debuglevel="lines,source">
+		<javac srcdir="${all_src}" destdir="${build.class}" encoding="UTF-8" debug="true" debuglevel="lines,source,vars">
 			<classpath refid="project.class.path" />
 		</javac>
 		<copy todir="${build.class}" preservelastmodified="true">
-            <fileset dir="./src/main/resources">
-                <!--<include name="**/*.xml" />-->
+			<fileset dir="./src/main/resources">
+				<!--<include name="**/*.xml" />-->
 				<include name="**/**/*.xml" />
-                <include name="**/*.properties" />
+				<include name="**/*.properties" />
 				<include name="**/*.cfg" />
 				<include name="**/*.ftl" />
-            </fileset>
-			   <fileset dir="./src/main/java">
-                <!--<include name="**/*.xml" />-->
+			</fileset>
+			<fileset dir="./src/main/java">
+				<!--<include name="**/*.xml" />-->
 				<include name="**/**/*.xml" />
-            </fileset>
-		</copy>	
+				<include name="**/**/*.properties" />
+			</fileset>
+		</copy>
 		<echo message="copy---------------------------2" />
 	</target>
 
@@ -71,9 +75,18 @@
 		<delete file="{lib}/servlet-api.jar"></delete>
 	</target>
 	
+	 <target name="buildTime" depends="deleteTomcatJar">
+    	<echo message="获取编译时间便于主页面显示" />
+		<!-- 获取编译时间便于主页面显示 -->
+		<replaceregexp byline="true" encoding="UTF-8">
+			<regexp pattern="buildTime = (.*)" />
+			<substitution expression="buildTime = ${complete_date}" />
+			<fileset dir="${build.class}" includes="buildMessage.properties" />
+		</replaceregexp>            
+	 </target>
 	
 	<!--打成WAR包-->
-	<target name="generwar" depends="deleteTomcatJar">
+	<target name="generwar" depends="buildTime">
 		<echo message="打成WAR" />
 		<war destfile="${build}/${file.war}" webxml="${webRoot}/WEB-INF/web.xml">
 			<fileset dir="src/main/webapp">

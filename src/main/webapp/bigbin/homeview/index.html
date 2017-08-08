@@ -5,11 +5,12 @@
     <title>姑且这个当做主页吧</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
-	<link rel="stylesheet" type="text/css" href="bigbin/homeview/css/home.css">
+	<link rel="stylesheet" type="text/css" href="${springPath}/bigbin/homeview/css/home.css">
 	
-	<script type="text/javascript" src="bigbin/plugins/jquery/dist/jquery.min.js"></script>
-	<script type="text/javascript" src="bigbin/homeview/js/three.min.js"></script>
-	<script type="text/javascript" src="bigbin/homeview/js/indexhome.js"></script>
+	<script type="text/javascript" src="${springPath}/bigbin/plugins/jquery/dist/jquery.min.js"></script>
+	<script type="text/javascript" src="${springPath}/bigbin/homeview/js/three.min.js"></script>
+	<script type="text/javascript" src="${springPath}/bigbin/plugins/common/js/util.js"></script>
+	<script type="text/javascript" src="${springPath}/bigbin/homeview/js/indexhome.js"></script>
 </head>
 
 <body>
@@ -29,7 +30,7 @@
 					</dt>
 					<dd>
 						<ul class="desc-link">
-							<li class="link-item"><a href="./user-center" target="_self">个人中心</a></li>
+							<li class="link-item"><a href="${springPath}/user-center" target="_self">个人中心</a></li>
 							<li class="link-item"><a href="#" target="_self">番剧二回合</a></li>
 							<li class="link-item"><a href="#" target="_self">番剧三回合</a></li>
 						</ul>

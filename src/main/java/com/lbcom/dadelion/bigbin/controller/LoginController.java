@@ -13,6 +13,7 @@ import net.sf.json.JSONObject;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -60,8 +61,8 @@ public class LoginController extends BaseResource<BZUser>{
 	 * @param request
 	 * @return
 	 */
-	@RequestMapping("/mainview")
-	public ModelAndView Mainview(HttpServletRequest request) {
+	@RequestMapping("/{account}/mainview")
+	public ModelAndView Mainview(@PathVariable String account) {
 		HashMap<String, Object> map = new HashMap<String, Object>();
 		return new ModelAndView("bigbin/homeview/index", map);
 	}
@@ -125,6 +126,7 @@ public class LoginController extends BaseResource<BZUser>{
    	    	request.getSession(true).setAttribute("xlh", result.get(0).getXlh());
 			BZUser zUser = result.get(0);
 			jsonObject.put("meg", zUser.getYhqx());
+			jsonObject.put("id", zUser.getXlh());
 		}
 	    response.getWriter().print(jsonObject);
 	}	
