@@ -121,7 +121,7 @@ public class LoginController extends BaseResource<BZUser>{
 	   	     jsonObject.put("success", "0");
 		   	 jsonObject.put("msg", "用户名或密码错误，请重试！");
    	    }else {
-   	    	log.info(ip);
+   	    	log.error(ip);
    	    	request.getSession(true).setAttribute("username", username);
    	    	request.getSession(true).setAttribute("xlh", result.get(0).getXlh());
 			BZUser zUser = result.get(0);
