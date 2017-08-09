@@ -46,7 +46,7 @@
 	<!--编译java源文件-->
 	<target name="compile" description="编译文件" depends="init">
 		<echo message="编译文件" />
-		<javac srcdir="${all_src}" destdir="${build.class}" encoding="UTF-8" debug="true" debuglevel="lines,source,vars">
+		<javac srcdir="${all_src}" destdir="${build.class}" includeantruntime="on" encoding="UTF-8" debug="true" debuglevel="lines,source,vars">
 			<classpath refid="project.class.path" />
 		</javac>
 		<copy todir="${build.class}" preservelastmodified="true">

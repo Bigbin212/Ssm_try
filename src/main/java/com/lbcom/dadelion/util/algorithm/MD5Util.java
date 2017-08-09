@@ -1,4 +1,4 @@
-﻿package com.lbcom.dadelion.util.algorithm;
+package com.lbcom.dadelion.util.algorithm;
 
 import java.security.MessageDigest;
 
