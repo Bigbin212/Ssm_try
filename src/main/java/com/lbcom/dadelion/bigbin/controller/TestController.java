@@ -1,8 +1,16 @@
 package com.lbcom.dadelion.bigbin.controller;
 
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.List;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
+
+import com.lbcom.dadelion.common.DateUtil;
+
 /**
  * 
  * @CopyRight :
@@ -47,5 +55,19 @@ public class TestController {
 	@RequestMapping("/echarts3")
 	public ModelAndView echarts3(){
 		return new ModelAndView("bigbin/try_echarts/echarts.3.0");
+	}
+	
+	public static void main(String[] args) {
+		 List<String> dateList = new ArrayList<String>();
+		 Calendar calendar = DateUtil.string2Calendar("20170809", new SimpleDateFormat("yyyyMMdd"));
+         Calendar today = Calendar.getInstance();       
+         int maxHour = 23;
+         if (today.get(Calendar.DATE)<=calendar.get(Calendar.DATE)&&today.get(Calendar.YEAR)<=calendar.get(Calendar.YEAR)&&today.get(Calendar.MONTH)<=calendar.get(Calendar.MONTH)) {
+             maxHour = today.get(Calendar.HOUR_OF_DAY);
+         }
+         for (int i = 0; i <= maxHour; i++) {
+             dateList.add(i+"");
+         }
+         System.err.println(dateList);
 	}
 }

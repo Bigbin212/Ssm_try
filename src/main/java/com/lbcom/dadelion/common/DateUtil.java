@@ -5,6 +5,8 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 
+import com.lbcom.dadelion.util.ConstUtil;
+
 /**
  * @CopyRight ©1995-2016: 
  * @Project： 
@@ -443,4 +445,108 @@ public class DateUtil {
         addTime(cal, amount, timeUnit);
         return cal.getTime();
     }
+    
+    
+    
+
+
+	
+	/**
+	 * 格式化时间
+	 * timeToStr(这里用一句话描述这个方法的作用)        
+	 * TODO(这里描述这个方法的注意事项 – 可选) 
+	 * author liuzhuo   
+	 * 日期  2015年4月15日 下午1:08:27
+	 * @param        
+	 * @return String    
+	 * @Exception 异常对象
+	 */
+	public static String timeToStr(Object object,SimpleDateFormat simpleDateFormat){
+		String  retStr = null;
+		//判断格式化对象是否为null
+		if(null ==simpleDateFormat){
+			simpleDateFormat = new SimpleDateFormat(ConstUtil.NOMAL_DATE_FORMAT_STRING);
+		}
+		//判断参数对象是否为null
+		if(null == object){
+			retStr = simpleDateFormat.format(Calendar.getInstance().getTime());
+			return retStr;
+		}
+		
+		//判断参数类型
+		if(object instanceof Date){
+			retStr = simpleDateFormat.format(object);
+		}else if(object instanceof Calendar){
+			retStr = simpleDateFormat.format(((Calendar) object).getTime());
+		}
+		return retStr;
+	}
+	
+	public static Date string2Date(String str,SimpleDateFormat simpleDateFormat){
+		//判断格式化对象是否为null
+		if(null ==simpleDateFormat){
+			simpleDateFormat = new SimpleDateFormat(ConstUtil.NOMAL_DATE_FORMAT_STRING);
+		}
+		//判断参数类型
+		Date date = new Date();
+		try {
+			date = simpleDateFormat.parse(str);
+		} catch (ParseException e) {
+			e.printStackTrace();
+		}
+		return date;
+	}
+	
+	public static Calendar string2Calendar(String str,SimpleDateFormat simpleDateFormat){
+		//判断格式化对象是否为null
+		if(null ==simpleDateFormat){
+			simpleDateFormat = new SimpleDateFormat(ConstUtil.NOMAL_DATE_FORMAT_STRING);
+		}
+		//判断参数类型
+		Calendar calendar = null;
+		try {
+			calendar = Calendar.getInstance();
+			calendar.setTime(simpleDateFormat.parse(str));
+		} catch (ParseException e) {
+			e.printStackTrace();
+		}
+		return calendar;
+	}
+
+	/**      
+	 * changeFormat(将时间格式从一种转换为另外一种)        
+	 * author liuzhuo   
+	 * 日期  2016年10月24日 下午3:17:28
+	 * @param        
+	 * @return String    
+	 * @Exception 异常对象          
+	*/
+	public static String changeFormat(String str, String sourcePatten,String desPatten) {
+				//判断格式化对象是否为null
+				if(null ==sourcePatten){
+					sourcePatten = ConstUtil.NOMAL_DATE_FORMAT_STRING;
+				}
+				SimpleDateFormat simpleDateFormat = new SimpleDateFormat(sourcePatten);
+				//判断参数类型
+				Calendar calendar = null;
+				try {
+					calendar = Calendar.getInstance();
+					calendar.setTime(simpleDateFormat.parse(str));
+				} catch (ParseException e) {
+					e.printStackTrace();
+				}
+				//判断格式化对象是否为null
+				if(null ==desPatten){
+					desPatten = ConstUtil.NOMAL_DATE_FORMAT_STRING;
+				}
+				
+				SimpleDateFormat desSimpleDateFormat = new SimpleDateFormat(desPatten);
+				
+		return desSimpleDateFormat.format(calendar.getTime());
+	}
+	
+	
+	
+	
+
 }
