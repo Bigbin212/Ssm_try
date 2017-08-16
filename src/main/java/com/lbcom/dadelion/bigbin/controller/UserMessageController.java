@@ -14,6 +14,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import net.sf.json.JSONObject;
 
+import org.apache.commons.codec.binary.Base64;
 import org.apache.log4j.Logger;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -190,4 +191,19 @@ public class UserMessageController {
 		return filePath;
 		
 	}
+	
+	@SuppressWarnings("unused")
+	private byte[] GetImageStrByInPut(InputStream input) {  
+        byte[] data = null;  
+        // 读取图片字节数组  
+        try {  
+            data = new byte[input.available()];  
+            input.read(data);  
+            input.close();  
+        } catch (IOException e) {  
+            e.printStackTrace();  
+        }  
+        // 对字节数组Base64编码   
+        return Base64.encodeBase64(data);// 返回Base64编码过的字节数组字符串  
+    }  
 }

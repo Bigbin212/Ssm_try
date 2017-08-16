@@ -187,7 +187,7 @@ function initComplement(){
 		"display" : "block"
 	});*/
 	$('#main-iframe').attr("src",basePath+'/html5video');
-	//$('#main-bottom-iframe').attr("src",'http://www.u17.com/');
+	/*$('#main-bottom-iframe').attr("src",'http://www.u17.com/');*/
 	//显示当前登录的用户名
 	showUserName();
 	$.ajax({

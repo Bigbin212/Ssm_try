@@ -308,6 +308,13 @@
 		    <version>2.9.1</version>
 		</dependency>
 		
+		<!-- https://mvnrepository.com/artifact/commons-codec/commons-codec -->
+		<dependency>
+		    <groupId>commons-codec</groupId>
+		    <artifactId>commons-codec</artifactId>
+		    <version>1.10</version>
+		</dependency>
+		
 		
 		<!-- 调用本地的jar包 
 			<groupId> </groupId>
