@@ -22,8 +22,8 @@ function Onchange(){
 					return;
 		        }else if (window.File && window.FileReader && window.FileList && window.Blob){ //H5判断上传文件的大小
 	                var fsize =$(this)[0].files[0].size;//获取上传文件的大小
-	                if(fsize>1048576*5){ //设置上传文件不大于5M
-	                	jAlert(fsize +" bites\n不能大于5M啦！！！！", "提示");
+	                if(fsize>1048576*3){ //设置上传文件不大于5M
+	                	jAlert(fsize +" bites\n不能大于3M啦！！！！", "提示");
 	                	clearFileInput();
 	                    return;
 	                }

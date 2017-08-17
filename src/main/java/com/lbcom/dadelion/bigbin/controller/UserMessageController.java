@@ -4,7 +4,6 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
-import java.io.OutputStream;
 import java.util.HashMap;
 import java.util.List;
 
@@ -14,7 +13,6 @@ import javax.servlet.http.HttpServletResponse;
 
 import net.sf.json.JSONObject;
 
-import org.apache.commons.codec.binary.Base64;
 import org.apache.log4j.Logger;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -70,11 +68,13 @@ public class UserMessageController {
 			JSONUtil.writeJSONObjectToResponse(response, jsonObject);
 			return;
 		}
-		List<BZUser> list = null;
-		list = zser.selectByPrimaryKey(xlh);
-		if(!StringUtil.isNULLOrEmpty(list)){
+		 
+		 List<BZUser> list = null;
+		 list = zser.selectByPrimaryKey(xlh);
+		 if(!StringUtil.isNULLOrEmpty(list)){
 			jsonObject.put("url", list.get(0).getPhoto());
-		}
+		 }
+		 
 		//String url = zser.selectByKey(xlh);
 		//String filePathString = getImgDir(request.getSession().getServletContext().getRealPath(""))+"/"+xlh+".jpg";
 		//File file = new File(filePathString);
@@ -113,8 +113,8 @@ public class UserMessageController {
 			jsonObject.put("msg", "读取文件异常!");
 			JSONUtil.writeJSONObjectToResponse(response, jsonObject);
 			return;
-		}else if(images.getSize() > 5*1048576){
-			jsonObject.put("msg", "图片的大小超过5M啦！！！！！");
+		}else if(images.getSize() > 3*1048576){
+			jsonObject.put("msg", "图片的大小超过3M啦！！！！！");
 			JSONUtil.writeJSONObjectToResponse(response, jsonObject);
 			return;
 		}
@@ -122,16 +122,21 @@ public class UserMessageController {
 		try {
 			//文件输入流
 			in = images.getInputStream();
+
 			//获取ip和端口
 			//String ipAddr = getIpAndPort(request.getRequestURL().toString());
 			String name = getImgDir(save_images)+xlh+".jpg";			
-			//FileOutputStream out = new FileOutputStream(name);
-			OutputStream out = new FileOutputStream(name);
+			FileOutputStream out = new FileOutputStream(name);
+			//ByteArrayOutputStream byteArrayOutputStream= new ByteArrayOutputStream();
 			byte[] buffer = new byte[1024];
 			int len = 0;
 	        while( (len = in.read(buffer)) > 0){
 	          out.write(buffer, 0, len);
+	         // byteArrayOutputStream.write(buffer, 0, len);
 	        }
+	       
+	        //jedis.hset("userMessage:storage", xlh , new String(ImageUtil.GetImageStrByInPut(byteArrayOutputStream.toByteArray())));
+	        
 	        //关闭流
 	        out.close();
 	        in.close();
@@ -141,9 +146,17 @@ public class UserMessageController {
 			line.setXlh(xlh);
 			line.setPhoto(url+xlh+".jpg");
 			zser.updateByPrimaryKey(line);
+	        jsonObject.put("url", url+xlh+".jpg");
 			
-			jsonObject.put("url", url+xlh+".jpg");
 			//jsonObject.put("url", ipAddr+"/userMessage/images/"+xlh+".jpg");
+	        
+	      /* //解码成图片  
+	        byte[] test = Base64.decodeBase64(jedis.hget("userMessage:storage", xlh));
+	        out = new FileOutputStream(name);
+	        out.write(test);
+	        out.flush();
+	        out.close();*/
+	        
 		}catch(IOException e){
 			jsonObject.put("msg", "头像保存失败!"+e.getMessage());
 			e.printStackTrace();
@@ -189,21 +202,6 @@ public class UserMessageController {
 			file.mkdirs();
 		}
 		return filePath;
-		
 	}
-	
-	@SuppressWarnings("unused")
-	private byte[] GetImageStrByInPut(InputStream input) {  
-        byte[] data = null;  
-        // 读取图片字节数组  
-        try {  
-            data = new byte[input.available()];  
-            input.read(data);  
-            input.close();  
-        } catch (IOException e) {  
-            e.printStackTrace();  
-        }  
-        // 对字节数组Base64编码   
-        return Base64.encodeBase64(data);// 返回Base64编码过的字节数组字符串  
-    }  
+	 
 }

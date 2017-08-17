@@ -1,8 +1,3 @@
-/*
-*Date: 2017-03-22 09:49:27
-*/
-
-SET FOREIGN_KEY_CHECKS=0;
 -- ----------------------------
 -- Table structure for `b_z_user`
 -- ----------------------------
@@ -20,11 +15,14 @@ CREATE TABLE `b_z_user` (
   PRIMARY KEY (`xlh`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
--- ----------------------------
--- Records of b_z_user
--- ----------------------------
---管理员
-INSERT INTO `b_z_user` VALUES ('c9cc9174d9894fee92223266df36f649', 'admin', '930109', '127.0.0.1', 'admin@qq.com', null, null, null, '0');
---普通用户
-INSERT INTO `b_z_user` VALUES ('d931b50f1db44ee197e175c9d217c37b', 'godness', '888888', '127.0.0.1', 'godness@qq.com', null, null, NULL, '1');
-commit;
+
+DROP TABLE IF EXISTS `b_qj_xtpz`;
+CREATE TABLE `b_qj_xtpz` (
+  `id` int(32) NOT NULL AUTO_INCREMENT COMMENT '主键',
+  `name` varchar(32) NOT NULL COMMENT '变量名',
+  `name_cn` varchar(32) DEFAULT NULL COMMENT '变量中文名',
+  `val` varchar(128) DEFAULT NULL COMMENT '变量对应的配置值',
+  `expand` varchar(128) DEFAULT NULL COMMENT '代码项扩展',
+  `description` varchar(256) DEFAULT NULL COMMENT '代码项描述',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;

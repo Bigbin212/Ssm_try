@@ -1,6 +1,9 @@
 package com.lbcom.dadelion.util;
 
+import java.awt.Image;
 import java.awt.image.BufferedImage;
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
@@ -11,9 +14,15 @@ import java.net.URLEncoder;
 
 import javax.imageio.ImageIO;
 
+import org.apache.commons.codec.binary.Base64;
 import org.apache.log4j.Logger;
 
 import net.sf.json.JSONObject;
+
+/**
+ * @Description 图片处理 
+ * @Version 1.0
+ */
 
 public class ImageUtil {
 	private static Logger log = Logger.getLogger(ImageUtil.class);
@@ -112,4 +121,75 @@ public class ImageUtil {
         }  
         return sb.toString();  
     }  
+	
+	
+	/**
+	 * Base64编码图片
+	 * @param input
+	 * @return
+	 */
+	public static byte[] GetImageStrByInPut(Object object) {  
+        byte[] data = null; 
+        if(object instanceof InputStream){
+            // 读取图片字节数组  
+            try {  
+            	InputStream input = (InputStream) object;
+                
+                ByteArrayOutputStream byteArrayOutputStream= new ByteArrayOutputStream();
+    			byte[] buffer = new byte[1024];
+    			int len = 0;
+    	        while( (len = input.read(buffer)) > 0){
+    	        	byteArrayOutputStream.write(buffer, 0, len);
+    	        }
+                data = byteArrayOutputStream.toByteArray();   
+                
+            } catch (IOException e) {  
+                e.printStackTrace();  
+            } 
+        }else if (object instanceof byte[]) {
+			data = (byte[])object;
+		}
+        data = imageCompress(data,0.5f,0.5f);
+        return Base64.encodeBase64(data);// 返回Base64编码过的字节数组字符串  
+    } 
+	
+	/**
+	 * 图片压缩
+	 * @param imageBytes byte
+	 * @param quality 宽
+	 * @param ratio   高 
+	 * @return
+	 */
+	public static byte[] imageCompress(byte[] imageBytes, float quality, float ratio) {
+		ByteArrayOutputStream byteArrayOutputStream = null;
+		ByteArrayInputStream is = null;
+		try {
+			is = new ByteArrayInputStream(imageBytes);
+			Image image = ImageIO.read(is);
+			int imageWidth = image.getWidth(null);
+			int imageHeight = image.getHeight(null);
+			log.info("原图宽高:" + imageWidth + "," + imageHeight);
+			// 设置图片新的宽高
+			int newImageWidth = (int) (imageWidth * ratio);
+			int newImageHeight = (int) (imageHeight * ratio);
+			log.info("压缩后宽高:" + newImageWidth + "," + newImageHeight);
+			// 生成新的图片
+			BufferedImage bufferedImage = new BufferedImage(newImageWidth, newImageHeight, BufferedImage.TYPE_INT_RGB);
+			bufferedImage.getGraphics().drawImage(image, 0, 0, newImageWidth, newImageHeight, null); // 绘制缩小后的图
+			//JPEGEncodeParam param = JPEGCodec.getDefaultJPEGEncodeParam(bufferedImage);
+			//param.setQuality(quality, false);
+			byteArrayOutputStream = new ByteArrayOutputStream();
+			//JPEGImageEncoder encoder = JPEGCodec.createJPEGEncoder(byteArrayOutputStream, param);
+			//encoder.encode(bufferedImage);
+			//FileOutputStream fileOutputStream = new FileOutputStream("D://test.jpg");
+			//byteArrayOutputStream.writeTo(fileOutputStream);
+			
+			ImageIO.write(bufferedImage, "jpg", byteArrayOutputStream);
+			
+			return byteArrayOutputStream.toByteArray();
+		} catch (Exception e) {
+			log.error("图片压缩异常", e);
+		}
+		return null;
+	}
 }
