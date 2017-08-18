@@ -322,18 +322,21 @@
 		    <version> </version>  这三项可以随便填写
 			 
 			<scope>system</scope>  system表示本地的
-		    <systemPath>${project.basedir}/src/main/webapp/WEB-INF/lib/ XXX.jar</systemPath> 
+		    <systemPath>${pom.basedir}/src/main/webapp/WEB-INF/lib/ XXX.jar</systemPath> 
+		    
+		  此处的 pom.  避免打包时找不到本地的jar包
 		-->
 		<dependency>  
 		    <groupId>com.danga.MemCached</groupId>  
 		    <artifactId>MemCached</artifactId>  
 		    <version>2.0.1</version>  
 		    <scope>system</scope>  
-		    <systemPath>${project.basedir}/src/main/webapp/WEB-INF/lib/MemCached-2.0.1.jar</systemPath>  
+		    <systemPath>${pom.basedir}/src/main/webapp/WEB-INF/lib/MemCached-2.0.1.jar</systemPath>  
 		</dependency>  
 		
 	</dependencies>
 	<build>
+		<defaultGoal>compile</defaultGoal>
 		<finalName>Ssm_try</finalName>
 		<plugins>
 			<plugin>
@@ -347,4 +350,8 @@
 			</plugin>
 		</plugins>
 	</build>
+	<!-- 避免打包是报UTF-8的错误提示 -->
+	<properties>     
+    	<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>     
+	</properties>   
 </project>
