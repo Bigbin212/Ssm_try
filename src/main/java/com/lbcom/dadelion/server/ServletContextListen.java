@@ -1,5 +1,7 @@
 package com.lbcom.dadelion.server;
 
+import java.io.File;
+
 import javax.servlet.ServletContext;
 import javax.servlet.ServletContextAttributeEvent;
 import javax.servlet.ServletContextAttributeListener;
@@ -53,9 +55,21 @@ public class ServletContextListen implements ServletContextListener, ServletCont
      * @see ServletContextListener#contextInitialized(ServletContextEvent)
      */
     public void contextInitialized(ServletContextEvent arg0) {
-    	ServletContext context = arg0.getServletContext();
-    	String springPath = context.getContextPath();
-    	context.setAttribute("springPath", springPath);
+    	String logPath = "..";
+		try {
+			ServletContext context = arg0.getServletContext();
+	    	String springPath = context.getContextPath();
+	    	context.setAttribute("springPath", springPath);//返回项目名
+	    	
+			String projectPath = System.getProperty("Ssm_try");
+			File projectDir = new File(projectPath);
+			logPath = projectDir.getParentFile().getParentFile().getPath(); //指定log存储地址
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		//设置日志路径
+		System.setProperty("logHome", logPath);
+		System.out.println(System.getProperty("logHome"));
     }
 	
 }
