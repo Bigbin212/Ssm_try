@@ -105,6 +105,7 @@ function formDate(){
 	var form = {};
 	form.username = $('#username').val();
 	form.password = $('#password').val();
+	//form.password = hex_md5($('#password').val());//MD5加密
 	form.phone = $('#phone').val();
 	form.email = $('#email').val();
 	return form;

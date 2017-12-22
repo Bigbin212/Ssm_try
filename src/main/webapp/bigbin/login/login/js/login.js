@@ -240,7 +240,12 @@ function login_error(flag){
 function formData(){
 	var form = {};
 	form.username = $.trim($('#username').val());
-	form.password = $.trim($('#password').val());
+	//便于后续扩展 密码MD5加密
+	//if(!!getCookie("password")){
+		form.password = $.trim($('#password').val());
+	//}else{
+	//	form.password = hex_md5($.trim($('#password').val()));
+	//}
 	return form;
 }
 
